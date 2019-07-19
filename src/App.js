@@ -9,7 +9,8 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import Hetsno from "./Hetsno.js";
+import Hetsno from "./Hetsno";
+import * as Config from "./config";
 
 function AppRouter() {
   return (
@@ -27,7 +28,8 @@ function AppRouter() {
 }
 
 function Index() {
-  var appUrl = `${window.location.origin.toString()}/hetsno/`;
+  const appUrl = `${window.location.origin.toString()}/hetsno/`;
+  const publiBikeAPIUrl = Config.PUBLIBIKEAPI;
 
   return (
     <>
@@ -52,12 +54,10 @@ function Index() {
       <ol>
         <li>
           Auf der PubliBike-API{" "}
-          <a href="https://api.publibike.ch/v1/public/stations">
-            Stations-Service
-          </a>{" "}
-          die gewünschten <code>id</code> der Stationen notieren. Oder
-          alternativ die <code>id</code> in den Netzwerkrequests auf{" "}
-          <code>api.publibike.ch</code> beim Aufklappen der Stationsdetails
+          <a href={publiBikeAPIUrl + "stations"}>Stations-Service</a> die
+          gewünschten <code>id</code> der Stationen notieren. Oder alternativ
+          die <code>id</code> in den Netzwerkrequests auf{" "}
+          <code>{publiBikeAPIUrl}</code> beim Aufklappen der Stationsdetails
           auslesen.
         </li>
         <li>
