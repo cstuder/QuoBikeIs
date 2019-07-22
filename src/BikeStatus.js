@@ -16,7 +16,7 @@ class BikeStatus extends React.Component {
   componentDidMount() {
     this.setState({ isLoading: true });
 
-    const url = Config.PUBLIBIKEAPI + "stations/" + this.props.id;
+    const url = Config.LOCALAPI + "stations.php?id=" + this.props.id;
 
     axios
       .get(url)
@@ -38,11 +38,13 @@ class BikeStatus extends React.Component {
     const { data, isLoading, error } = this.state;
 
     if (error) {
-      return <p>{error.message}</p>;
+      return (
+        <p>Station nicht gefunden oder hat ein Problem. ({error.message})</p>
+      );
     }
 
     if (isLoading) {
-      return <p>Loading ...</p>;
+      return <p>Suche Velos ...</p>;
     }
 
     // Data is there, count bikes

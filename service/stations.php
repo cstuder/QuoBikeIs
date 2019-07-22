@@ -22,5 +22,6 @@ if($station === FALSE) {
 }
 
 // Output response
+header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
 echo $station;
