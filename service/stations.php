@@ -9,19 +9,22 @@
 // Configuation
 define('PUBLIBIKEAPI', 'https://api.publibike.ch/v1/public/');
 
+// Get parameters
 $id = $_GET['id'] ?? null;
 $idclean = intval($id);
 
 // Fetch data
 $station = file_get_contents(PUBLIBIKEAPI . 'stations/' . $idclean);
 
-// Check for error
+// Set CORS header
+header('Access-Control-Allow-Origin: *');
+
+// Basic error handler
 if($station === FALSE) {
     http_response_code(400);
     exit();
 }
 
 // Output response
-header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
 echo $station;
