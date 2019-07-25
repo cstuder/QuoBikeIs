@@ -11,7 +11,7 @@ function Hetsno(props) {
   return (
     <>
       <BikeStatusList ids={ids} />
-      <Link to="/">Quo Bike Is</Link> - Zurück zu Anleitung
+      Quo Bike Is - <Link to="/">Zurück zu Anleitung</Link>
     </>
   );
 }
