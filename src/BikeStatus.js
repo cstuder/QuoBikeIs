@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import * as Config from "./config";
+import { Spinner } from "react-bootstrap";
 
 class BikeStatus extends React.Component {
   constructor(props) {
@@ -44,7 +45,11 @@ class BikeStatus extends React.Component {
     }
 
     if (isLoading) {
-      return <p>Suche Velos ...</p>;
+      return (
+        <p>
+          <Spinner animation="border" size="sm" />
+        </p>
+      );
     }
 
     // Data is there, count bikes
