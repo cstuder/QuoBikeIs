@@ -10,7 +10,7 @@ import {
   Redirect
 } from "react-router-dom";
 import Hetsno from "./Hetsno";
-import * as Config from "./config";
+import Wogits from "./Wogits";
 
 function AppRouter() {
   return (
@@ -20,6 +20,7 @@ function AppRouter() {
           <Route path="/" exact component={Index} />
           <Route path="/hetsno/:ids" component={Hetsno} />
           <Route path="/hetsno" component={Hetsno} />
+          <Route path="/wogits" component={Wogits} />
           <Route component={RedirectToIndex} />
         </Switch>
       </Container>
@@ -29,7 +30,6 @@ function AppRouter() {
 
 function Index() {
   const appUrl = `${window.location.origin.toString()}/hetsno/`;
-  const publiBikeAPIUrl = Config.PUBLIBIKEAPI;
 
   return (
     <>
@@ -43,34 +43,35 @@ function Index() {
         <a href="https://www.publibike.ch">PubliBike</a>.
       </p>
 
-      <p>
-        Eine Webseite von{" "}
-        <a href="mailto:cstuder@existenz.ch">Christian Studer</a> &ndash;{" "}
-        <a href="http://bureau.existenz.ch/">Bureau für digitale Existenz</a>.
-      </p>
-
       <h3>Anleitung</h3>
 
       <ol>
         <li>
-          Auf der PubliBike-API{" "}
-          <a href={publiBikeAPIUrl + "stations"}>Stations-Service</a> die
-          gewünschten <code>id</code> der Stationen notieren. Oder alternativ
-          die <code>id</code> in den Netzwerkrequests auf{" "}
-          <code>{publiBikeAPIUrl}</code> beim Aufklappen der Stationsdetails
-          auslesen.
+          Auf der <Link to="/wogits">Stationsseite</Link> deine
+          Lieblingsstationen auswählen.
         </li>
-        <li>
-          Alle <code>id</code>'s komma-separiert an die URL{" "}
-          <Link to="/hetsno">{appUrl}</Link> anhängen.
-        </li>
-        <li>Auf die Seite gehen und zu den Bookmarks hinzufügen. Fertig.</li>
+        <li>Den erstellten Link klicken.</li>
+        <li>Die Seite zu deinen Lesezeichen hinzufügen. Fertig.</li>
       </ol>
       <p>
         Beispiel:{" "}
         <Link to="/hetsno/217,105,165,25,233,58,146">
           {appUrl}217,105,165,25,233,58,146
         </Link>
+      </p>
+
+      <h3>Über</h3>
+
+      <p>
+        Eine Webseite von{" "}
+        <a href="mailto:cstuder@existenz.ch">Christian Studer</a> &ndash;{" "}
+        <a href="http://bureau.existenz.ch/">Bureau für digitale Existenz</a>.
+      </p>
+      <p>
+        Quellcode:{" "}
+        <a href="https://github.com/cstuder/QuoBikeIs/">
+          https://github.com/cstuder/QuoBikeIs/
+        </a>
       </p>
     </>
   );

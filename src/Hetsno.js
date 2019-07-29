@@ -4,7 +4,15 @@ import { Link } from "react-router-dom";
 
 function Hetsno(props) {
   if (!props.match.params.ids)
-    return <Link to="/">Quo Bike Is (Keine Stations-Ids gefunden)</Link>;
+    return (
+      <>
+        <Link to="/wogits">
+          Keine Stations-Ids gefunden, bitte aus der Liste auswählen.
+        </Link>
+        <br />
+        Quo Bike Is
+      </>
+    );
 
   const ids = props.match.params.ids.split(",");
 
