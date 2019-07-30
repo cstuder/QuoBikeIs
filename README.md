@@ -12,6 +12,8 @@ Einfach React-App, kreirt mit [Create React App](https://github.com/facebook/cre
 
 Um CORS-Sperre zu umgehen wird ein einfacher PHP-Service als Proxy verwendet.
 
+Der Service `stations.php` speichert dabei seine Daten in `/service/cache` damit der Service `stationslist.php` daraus die Stationsnamen auslesen kann. (Der Cache wird von `stations.php` selber nicht benutzt.)
+
 ## Development
 
 `npm run dev` ausführen.

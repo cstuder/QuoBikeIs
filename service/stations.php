@@ -8,6 +8,7 @@
 
 // Configuation
 define('PUBLIBIKEAPI', 'https://api.publibike.ch/v1/public/');
+define('CACHEDIR', realpath(__DIR__ . '/cache') . '/');
 
 // Get parameters
 $id = $_GET['id'] ?? null;
@@ -24,6 +25,9 @@ if($station === FALSE) {
     http_response_code(400);
     exit();
 }
+
+// Cache result
+file_put_contents(CACHEDIR . "{$idclean}.json", $station);
 
 // Output response
 header('Content-type: application/json');
