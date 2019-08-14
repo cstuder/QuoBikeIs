@@ -73,7 +73,7 @@ class BikeStatus extends React.Component {
 
     const status = (
       <span>
-        {bikes} Velos / {ebikes} E-Bikes
+        {bikes} 🚲 / {ebikes} 🔋
       </span>
     );
 
