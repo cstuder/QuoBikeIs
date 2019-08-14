@@ -6,7 +6,10 @@ import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import "react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css";
 import "react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css";
 import BootstrapTable from "react-bootstrap-table-next";
-import filterFactory, { textFilter } from "react-bootstrap-table2-filter";
+import filterFactory, {
+  textFilter,
+  selectFilter
+} from "react-bootstrap-table2-filter";
 import paginationFactory, {
   PaginationProvider,
   PaginationListStandalone,
@@ -65,36 +68,26 @@ class Wogits extends React.Component {
     }
 
     // Data available
+    const cities = [...new Set(data.map(i => i.city))].sort();
+
     const columns = [
       {
-        dataField: "id",
-        text: "Stations ID",
+        dataField: "city",
+        text: "Stadt",
+        sort: true,
+        filter: selectFilter({
+          options: cities.map(c => ({ value: c, label: c }))
+        })
+      },
+      {
+        dataField: "name",
+        text: "Adresse",
         sort: true,
         filter: textFilter()
       },
       {
-        dataField: "state.name",
-        text: "Status",
-        sort: true,
-        filter: textFilter({
-          placeholder: "Status eingeben"
-        })
-      },
-      {
-        dataField: "latitude",
-        text: "Lat",
-        sort: true,
-        formatter: this.roundingFormatter
-      },
-      {
-        dataField: "longitude",
-        text: "Lon",
-        sort: true,
-        formatter: this.roundingFormatter
-      },
-      {
         dataField: "actions",
-        text: "Hinzufügen",
+        text: "",
         isDummyField: true,
         formatter: (cell, row) => (
           <AddButton row={row} onClick={this.addStationToSelected} />
@@ -127,7 +120,10 @@ class Wogits extends React.Component {
                 striped
                 bordered
                 hover
-                defaultSorted={[{ dataField: "id", order: "asc" }]}
+                defaultSorted={[
+                  { dataField: "city", order: "asc" },
+                  { dataField: "name", order: "asc" }
+                ]}
                 filter={filterFactory()}
                 {...paginationTableProps}
               />
