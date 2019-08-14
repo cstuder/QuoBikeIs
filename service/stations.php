@@ -10,15 +10,15 @@
 define('PUBLIBIKEAPI', 'https://api.publibike.ch/v1/public/');
 define('CACHEDIR', realpath(__DIR__ . '/cache') . '/');
 
+// Set CORS header
+header('Access-Control-Allow-Origin: *');
+
 // Get parameters
 $id = $_GET['id'] ?? null;
 $idclean = intval($id);
 
 // Fetch data
 $station = file_get_contents(PUBLIBIKEAPI . 'stations/' . $idclean);
-
-// Set CORS header
-header('Access-Control-Allow-Origin: *');
 
 // Basic error handler
 if($station === FALSE) {
