@@ -15,12 +15,12 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
+    "dev": "run-p start start-service",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-service": "php -S localhost:8000 -t service",
-    "dev": "run-p start start-service"
+    "start-service": "php -S localhost:8000 -t service"
   },
   "eslintConfig": {
     "extends": "react-app"
