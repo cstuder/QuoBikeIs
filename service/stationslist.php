@@ -38,7 +38,7 @@ foreach($stations as $index => $station) {
 
         if($stationdataRaw === FALSE || ($stationdata = json_decode($stationdataRaw)) === FALSE) {
             // Neither cache nor service did work, set the name manually
-            $stationdata = (object) ['name' => $station->id, 'city' => '???'];
+            $stationdata = (object) ['name' => $station->id, 'city' => '???', (object) 'network' => ['name' => '???']];
         } else {
             // Store in cache
             file_put_contents($cacheFile, $stationdataRaw);
@@ -48,6 +48,7 @@ foreach($stations as $index => $station) {
     // Augment answer
     $stations[$index]->name = $stationdata->name;
     $stations[$index]->city = $stationdata->city;
+    $stations[$index]->network = $stationdata->network->name;
 }
 
 // Output response

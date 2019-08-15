@@ -72,6 +72,11 @@ class Wogits extends React.Component {
 
     const columns = [
       {
+        dataField: "network",
+        text: "Netz",
+        sort: "true"
+      },
+      {
         dataField: "city",
         text: "Stadt",
         sort: true,
