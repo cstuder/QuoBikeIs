@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/bin/sh@master
-      with:
-        args: $GITHUB_WORKSPACE/deploy/action.sh
+    - name: Show current directory
+      run: pwd
+    - name: Show environment variables
+      run: printenv
+    - run: deploy/action.sh
+      name: Run deployment script action.sh
       env:
         APPRISE_URL: ${{ secrets.APPRISE_URL }}
         SSH_SECRET_KEY: ${{ secrets.SSH_SECRET_KEY }}
