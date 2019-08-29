@@ -78,8 +78,9 @@ echo "$SSH_PRIVATE_KEY" > "$SSH_PATH/id_rsa"
 chmod 600 "$SSH_PATH/id_rsa"
 
 # Execute rsync
-rsync --progress --verbose --archive -e 'ssh -o StrictHostKeyChecking=no -i /github/home/.ssh/id_rsa' $SRC_PATH $DEST
-rsync --progress --verbose --archive -e 'ssh -o StrictHostKeyChecking=no -i /github/home/.ssh/id_rsa' $SRC_SERVICE_PATH "$DEST/service"
+RSYNC_SSH=\'ssh -o StrictHostKeyChecking=no -i $SSH_PATH/id_rsa\'
+rsync --progress --verbose --archive -e $RSYNC_SSH $SRC_PATH $DEST
+rsync --progress --verbose --archive -e $RSYNC_SSH $SRC_SERVICE_PATH "$DEST/service"
 
 ## Notify
 
