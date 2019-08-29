@@ -20,7 +20,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-service": "php -S localhost:8000 -t service"
+    "start-service": "php -S localhost:8000 -t service",
+    "deploy-TEST": "git push . master:TEST && git push origin TEST",
+    "deploy-LIVE": "git push . master:LIVE && git push origin LIVE"
   },
   "eslintConfig": {
     "extends": "react-app"
