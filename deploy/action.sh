@@ -17,7 +17,12 @@ export LC_ALL=C.UTF-8
 ## Configuration
 DEST_LIVE="existenz@existenz.ch:~/www/existenz_quobikeis/"
 DEST_TEST="existenz@existenz.ch:~/www/existenz_quobikeis-TEST/"
-SRC_PATH="$GITHUB_WORKSPACE/www/"
+SRC_PATH="$GITHUB_WORKSPACE/build/";
+SRC_SERVICE_PATH="$GITHUB_WORKSPACE/service/";
+
+ENV_FILE="$GITHUB_WORKSPACE/.env.local"
+LOCALAPI_LIVE="https://quobikeis.existenz.ch/service/"
+LOCALAPI_TEST="https://quobiekis-test.existenz.ch/service"
 
 NOTIFICATION_TITLE="aare.guru.api {{ ref }} deployed"
 NOTIFICATION_BODY="Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"
@@ -25,7 +30,7 @@ NOTIFICATION_URL="$APPRISE_URL"
 
 ## Installation
 apt-get update
-apt-get -y install python3-pip jq rsync ssh
+apt-get -y install python3-pip jq rsync ssh npm
 pip3 install apprise j2cli
 
 ## Detect branch
@@ -43,11 +48,13 @@ fi
 case $BRANCH in
   LIVE)
     DEST=$DEST_LIVE
+    LOCALAPI=$LOCALAPI_LIVE
     echo "Deploying to production environment: $DEST"
     ;;
 
   TEST)
     DEST=$DEST_TEST
+    LOCALAPI=$LOCALAPI_TEST
     echo "Deploying to testing environment: $DEST"
     ;;
   
@@ -56,6 +63,12 @@ case $BRANCH in
     exit 0
     ;;
 esac
+
+## Build
+echo "REACT_APP_LOCALAPI=$LOCALAPI" > $ENV_FILE;
+
+npm install
+npm build
 
 ## Deploy
 
@@ -67,6 +80,7 @@ chmod 600 "$SSH_PATH/id_rsa"
 
 # Execute rsync
 rsync --progress --verbose --archive -e 'ssh -o StrictHostKeyChecking=no -i /github/home/.ssh/id_rsa' $SRC_PATH $DEST
+rsync --progress --verbose --archive -e 'ssh -o StrictHostKeyChecking=no -i /github/home/.ssh/id_rsa' $SRC_SERVICE_PATH "$DEST/service"
 
 ## Notify
 

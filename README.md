@@ -2,6 +2,10 @@
 
 Schneller Überblick über deine PubliBike-Favoriten-Standorte.
 
+`LIVE`: <https://quobikeis.existenz.ch>
+
+`TEST`: <https://quobikeis-test.existenz.ch>
+
 Unoffizielle Webseite für das Angebot von [PubliBike](https://www.publibike.ch).
 
 Eine Webseite von Christian Studer (<mailto:cstuder@existenz.ch>, [Bureau für digitale Existenz](http://bureau.existenz.ch/)).
@@ -19,6 +23,16 @@ Der Service `stations.php` speichert dabei seine Daten in `/service/cache` damit
 `npm run dev` ausführen.
 
 Benötigt aktuelle NPM-Version und PHP 7.+.
+
+## Deployment
+
+`npm run deploy-TEST` ausführen für Deployment nach `TEST`.
+
+`npm run deploy-LIVE` ausführen für Deployment nach `LIVE`.
+
+Das Deploymentskript `deploy/action.sh` erwartet zwei Umgebungsvariablen: `APPRISE_URL` für Deployment-Notifikation, `SSH_PRIVATE_KEY` für die Authentifizierung am Server.
+
+Auf dem Server muss die Umgebungsvariabel `REACT_APP_LOCALAPI` im `.env.local` korrekt gesetzt sein.
 
 ## Credits
 
