@@ -12,6 +12,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
     - run: bash $GITHUB_WORKSPACE/deploy/action.sh
       name: Run deployment script action.sh
       env:
