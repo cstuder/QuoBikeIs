@@ -30,7 +30,7 @@ NOTIFICATION_URL="$APPRISE_URL"
 
 ## Installation
 sudo apt-get -y install python3-pip jq rsync ssh python3-setuptools
-pip3 install apprise j2cli
+sudo pip3 install apprise j2cli
 
 ## Detect branch
 REF=$(cat $GITHUB_EVENT_PATH | jq '.ref')
