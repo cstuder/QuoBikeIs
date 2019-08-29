@@ -12,14 +12,6 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Show current directory
-      run: pwd
-    - name: Show environment variables
-      run: printenv
-    - name: ls
-      run: ls -la $GITHUB_WORKSPACE
-    - name: ls deploy
-      run: ls -la $GITHUB_WORKSPACE/deploy
     - run: bash $GITHUB_WORKSPACE/deploy/action.sh
       name: Run deployment script action.sh
       env:
