@@ -67,7 +67,7 @@ esac
 echo "REACT_APP_LOCALAPI=$LOCALAPI" > $ENV_FILE;
 
 npm install
-npm build
+npm run build
 
 ## Deploy
 
@@ -76,6 +76,8 @@ SSH_PATH="$HOME/.ssh"
 mkdir "$SSH_PATH"
 echo "$SSH_PRIVATE_KEY" > "$SSH_PATH/id_rsa"
 chmod 600 "$SSH_PATH/id_rsa"
+
+ls -la $SSH_PATH
 
 # Execute rsync
 rsync --progress --verbose --archive -e 'ssh -o StrictHostKeyChecking=no -i '"$SSH_PATH"'/id_rsa' $SRC_PATH $DEST
