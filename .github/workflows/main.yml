@@ -19,4 +19,4 @@ jobs:
       name: Run deployment script action.sh
       env:
         APPRISE_URL: ${{ secrets.APPRISE_URL }}
-        SSH_SECRET_KEY: ${{ secrets.SSH_SECRET_KEY }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
