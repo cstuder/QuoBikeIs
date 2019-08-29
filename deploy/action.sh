@@ -22,7 +22,7 @@ SRC_SERVICE_PATH="$GITHUB_WORKSPACE/service/";
 
 ENV_FILE="$GITHUB_WORKSPACE/.env.local"
 LOCALAPI_LIVE="https://quobikeis.existenz.ch/service/"
-LOCALAPI_TEST="https://quobikeis-test.existenz.ch/service"
+LOCALAPI_TEST="https://quobikeis-test.existenz.ch/service/"
 
 NOTIFICATION_TITLE="quobikeis {{ ref }} deployed"
 NOTIFICATION_BODY="Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"
