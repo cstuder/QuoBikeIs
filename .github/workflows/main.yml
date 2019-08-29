@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - uses: actions/checkout@v1
     - name: Show current directory
       run: pwd
     - name: Show environment variables
