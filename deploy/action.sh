@@ -29,7 +29,7 @@ NOTIFICATION_BODY="Commit by {{ head_commit.author.name }}: {{ head_commit.messa
 NOTIFICATION_URL="$APPRISE_URL"
 
 ## Installation
-apt-get -y install python3-pip jq rsync ssh npm
+apt-get -y install python3-pip jq rsync ssh npm python3-setuptools
 pip3 install apprise j2cli
 
 ## Detect branch
