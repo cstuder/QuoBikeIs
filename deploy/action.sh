@@ -15,16 +15,17 @@ export LC_ALL=C.UTF-8
 ##
 
 ## Configuration
-DEST_LIVE="existenz@existenz.ch:~/www/existenz_quobikeis/"
-DEST_TEST="existenz@existenz.ch:~/www/existenz_quobikeis-TEST/"
+PROJECT_NAME="wohetsno.bike"
+DEST_LIVE="existenz@existenz.ch:~/www/wohetsno.bike/"
+DEST_TEST="existenz@existenz.ch:~/www/wohetsno.bike-TEST/"
 SRC_PATH="$GITHUB_WORKSPACE/build/";
 SRC_SERVICE_PATH="$GITHUB_WORKSPACE/service/";
 
 ENV_FILE="$GITHUB_WORKSPACE/.env.local"
-LOCALAPI_LIVE="https://quobikeis.existenz.ch/service/"
-LOCALAPI_TEST="https://quobikeis-test.existenz.ch/service/"
+LOCALAPI_LIVE="https://wohetsno.bike/service/"
+LOCALAPI_TEST="https://test.wohetsno.bike/service/"
 
-NOTIFICATION_TITLE="quobikeis {{ ref }} deployed"
+NOTIFICATION_TITLE=""
 NOTIFICATION_BODY="Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"
 NOTIFICATION_URL="$APPRISE_URL"
 
@@ -37,7 +38,7 @@ REF=$(cat $GITHUB_EVENT_PATH | jq '.ref')
 if [[ "$REF" =~ \/([^\/]*)\"$ ]]; then
   BRANCH="${BASH_REMATCH[1]}"
   echo "Branch detected: $BRANCH"
-  NOTIFICATION_TITLE="quobikeis $BRANCH deployed"
+  NOTIFICATION_TITLE="$PROJECT_NAME $BRANCH deployed"
 else
   echo "No branch found in ref: $REF"
   exit 1

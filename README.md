@@ -2,9 +2,9 @@
 
 Schneller Überblick über deine PubliBike-Favoriten-Standorte.
 
-`LIVE`: <https://quobikeis.existenz.ch>
+`LIVE`: <https://wohetsno.bike>
 
-`TEST`: <https://quobikeis-test.existenz.ch>
+`TEST`: <https://test.wohetsno.bike>
 
 Unoffizielle Webseite für das Angebot von [PubliBike](https://www.publibike.ch).
 
@@ -32,7 +32,7 @@ Benötigt aktuelle NPM-Version und PHP 7.+.
 
 Das Deploymentskript `deploy/action.sh` erwartet zwei Umgebungsvariablen: `APPRISE_URL` für Deployment-Notifikation, `SSH_PRIVATE_KEY` für die Authentifizierung am Server.
 
-Auf dem Server muss die Umgebungsvariabel `REACT_APP_LOCALAPI` im `.env.local` korrekt gesetzt sein.
+Auf dem Server muss die Umgebungsvariable `REACT_APP_LOCALAPI` im `.env.local` korrekt gesetzt sein.
 
 ## Credits
 
