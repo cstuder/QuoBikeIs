@@ -8,11 +8,11 @@ Schneller Überblick über deine PubliBike-Favoriten-Standorte.
 
 Unoffizielle Webseite für das Angebot von [PubliBike](https://www.publibike.ch).
 
-Eine Webseite von Christian Studer (<mailto:cstuder@existenz.ch>, [Bureau für digitale Existenz](http://bureau.existenz.ch/)).
+Eine Webseite von Christian Studer ([cstuder@existenz.ch](mailto:cstuder@existenz.ch), [Bureau für digitale Existenz](http://bureau.existenz.ch/)).
 
 ## Struktur
 
-Einfach React-App, kreirt mit [Create React App](https://github.com/facebook/create-react-app), Routing mit [React Routing V5](https://reacttraining.com/react-router/).
+Einfach React-App, kreiert mit [Create React App](https://github.com/facebook/create-react-app), Routing mit [React Routing V5](https://reacttraining.com/react-router/).
 
 Um CORS-Sperre zu umgehen wird ein einfacher PHP-Service als Proxy verwendet.
 
