@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Fetch stations details from PubliBike
  *
@@ -21,7 +22,7 @@ $idclean = intval($id);
 $station = file_get_contents(PUBLIBIKEAPI . 'stations/' . $idclean);
 
 // Basic error handler
-if($station === FALSE) {
+if ($station === FALSE) {
     http_response_code(400);
     exit();
 }

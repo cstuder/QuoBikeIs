@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Fetch stations list from PubliBike
  *
@@ -16,27 +17,27 @@ header('Access-Control-Allow-Origin: *');
 $stationslist = file_get_contents(PUBLIBIKEAPI . 'stations');
 
 // Basic error handler
-if($stationslist === FALSE || ($stations = json_decode($stationslist)) === FALSE) {
+if ($stationslist === FALSE || ($stations = json_decode($stationslist)) === FALSE) {
     http_response_code(400);
     exit();
 }
 
 // Gather the station names for all stations
-foreach($stations as $index => $station) {
+foreach ($stations as $index => $station) {
     // Read from cache
     $cacheFile = CACHEDIR . "{$station->id}.json";
 
-    if(file_exists($cacheFile)) {
+    if (file_exists($cacheFile)) {
         $stationdataRaw = file_get_contents($cacheFile);
     } else {
         $stationdataRaw = FALSE;
     }
 
-    if($stationdataRaw === FALSE || ($stationdata = json_decode($stationdataRaw)) === FALSE) {
+    if ($stationdataRaw === FALSE || ($stationdata = json_decode($stationdataRaw)) === FALSE) {
         // Fetch data
         $stationdataRaw = file_get_contents(PUBLIBIKEAPI . 'stations/' . $station->id);
 
-        if($stationdataRaw === FALSE || ($stationdata = json_decode($stationdataRaw)) === FALSE) {
+        if ($stationdataRaw === FALSE || ($stationdata = json_decode($stationdataRaw)) === FALSE) {
             // Neither cache nor service did work, set the name manually
             $stationdata = (object) ['name' => $station->id, 'city' => '???', (object) 'network' => ['name' => '???']];
         } else {
