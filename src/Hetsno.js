@@ -10,7 +10,7 @@ function Hetsno(props) {
           Keine Stations-Ids gefunden, bitte aus der Liste auswählen.
         </Link>
         <br />
-        Quo Bike Is
+        Wohetsno.bike
       </>
     );
 
@@ -19,7 +19,7 @@ function Hetsno(props) {
   return (
     <>
       <BikeStatusList ids={ids} />
-      Quo Bike Is - <Link to="/">Zurück zu Anleitung</Link> -{" "}
+      Wohetsno.bike - <Link to="/">Zurück zu Anleitung</Link> -{" "}
       <Link to="/wogits">Zur Stationsliste</Link>
     </>
   );

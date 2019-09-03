@@ -33,7 +33,7 @@ function Index() {
 
   return (
     <>
-      <h2>Quo Bike Is</h2>
+      <h2>Wohetsno.bike</h2>
       <p>
         Schneller Überblick über deine PubliBike-Favoriten-Standorte. Zeigt dir
         alle aktuellen verfügbaren Velos und E-Bikes an.
