@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Hetsno from "./Hetsno";
 import Wogits from "./Wogits";
+import Hie from "./Hie";
 
 function AppRouter() {
   return (
@@ -21,6 +22,7 @@ function AppRouter() {
           <Route path="/hetsno/:ids" component={Hetsno} />
           <Route path="/hetsno" component={Hetsno} />
           <Route path="/wogits" component={Wogits} />
+          <Route path="/hie" component={Hie} />
           <Route component={RedirectToIndex} />
         </Switch>
       </Container>
@@ -60,6 +62,10 @@ function Index() {
         </Link>
       </p>
 
+      <h3>Nahegelegene Stationen finden</h3>
+
+      <p>Klick auf den <Link to="/hie">Nächstgelegenen Link hier</Link> um die dir 10 nächstgelegenen Stationen zu finden.</p>
+
       <h3>Über</h3>
 
       <p>
@@ -67,12 +73,16 @@ function Index() {
         <a href="mailto:cstuder@existenz.ch">Christian Studer</a> &ndash;{" "}
         <a href="http://bureau.existenz.ch/">Bureau für digitale Existenz</a>.
       </p>
+
+      <p>Diese Webseite zeichnet keine Besuche auf, speichert deine Position nicht und hat keine Werbung installiert.</p>
+
       <p>
         Quellcode:{" "}
         <a href="https://github.com/cstuder/QuoBikeIs/">
           https://github.com/cstuder/QuoBikeIs/
         </a>
       </p>
+
     </>
   );
 }

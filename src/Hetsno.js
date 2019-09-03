@@ -1,5 +1,5 @@
 import React from "react";
-import BikeStatus from "./BikeStatus";
+import { BikeStatusList } from "./BikeStatus";
 import { Link } from "react-router-dom";
 
 function Hetsno(props) {
@@ -19,14 +19,11 @@ function Hetsno(props) {
   return (
     <>
       <BikeStatusList ids={ids} />
-      Wohetsno.bike - <Link to="/">Zurück zu Anleitung</Link> -{" "}
-      <Link to="/wogits">Zur Stationsliste</Link>
+      Wohetsno.bike - <Link to="/">Zurück zum Start</Link> -{" "}
+      <Link to="/wogits">Zur Stationsauswahl</Link> -{" "}
+      <Link to="/hie">Nächstgelegene Stationen</Link>
     </>
   );
-}
-
-function BikeStatusList(props) {
-  return props.ids.map(id => <BikeStatus id={id} key={id} />);
 }
 
 export default Hetsno;

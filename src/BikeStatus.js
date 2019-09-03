@@ -3,6 +3,10 @@ import axios from "axios";
 import * as Config from "./config";
 import { Spinner } from "react-bootstrap";
 
+export function BikeStatusList(props) {
+  return props.ids.map(id => <BikeStatus id={id} key={id} />);
+}
+
 class BikeStatus extends React.Component {
   constructor(props) {
     super(props);
