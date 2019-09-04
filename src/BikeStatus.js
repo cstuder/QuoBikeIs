@@ -2,9 +2,12 @@ import React from "react";
 import axios from "axios";
 import * as Config from "./config";
 import { Spinner } from "react-bootstrap";
+import { haversine, bearing } from "./utils";
 
 export function BikeStatusList(props) {
-  return props.ids.map(id => <BikeStatus id={id} key={id} />);
+  return props.ids.map(id => (
+    <BikeStatus id={id} key={id} location={props.location} />
+  ));
 }
 
 class BikeStatus extends React.Component {
@@ -82,9 +85,30 @@ class BikeStatus extends React.Component {
       </span>
     );
 
+    let distance = null;
+
+    if (this.props.location) {
+      let d = Math.ceil(haversine(data, this.props.location));
+      let b = Math.ceil(bearing(data, this.props.location));
+      let bFixed = b - 90; // The arrow is heading towards 90°...
+
+      let rotation = {
+        transform: `rotate(${bFixed}deg)`
+      };
+
+      distance = (
+        <>
+          <span>{d} m</span>{" "}
+          <span style={rotation} title={b + "°"}>
+            ➤
+          </span>
+        </>
+      );
+    }
+
     return (
       <p>
-        {name} &ndash; {status}
+        {name} {distance} &ndash; {status}
       </p>
     );
   }
