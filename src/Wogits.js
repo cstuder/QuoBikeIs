@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 import * as Config from "./config";
-import { Form, Spinner, Button } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 class Wogits extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Wogits extends React.Component {
       selectedStations: []
     };
 
-    this.addStationToSelected = this.addStationToSelected.bind(this);
+    this.handleDragEnd = this.handleDragEnd.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +28,8 @@ class Wogits extends React.Component {
       .then(result =>
         this.setState({
           data: result.data,
-          isLoading: false
+          isLoading: false,
+          selectedStations: result.data.map((s, i) => i)
         })
       )
       .catch(error =>
@@ -39,7 +41,7 @@ class Wogits extends React.Component {
   }
 
   render() {
-    const { data, isLoading, error } = this.state;
+    const { data, selectedStations, isLoading, error } = this.state;
 
     if (error) {
       return (
@@ -54,43 +56,57 @@ class Wogits extends React.Component {
     }
 
     // Data available
-
     return (
-      <>
-        <ul>
-          {data.map(s => (
-            <li key={s.id}>
-              {s.name} ({s.city})
-            </li>
-          ))}
-        </ul>
-      </>
+      <DragDropContext onDragEnd={this.handleDragEnd}>
+        <Droppable droppableId="ul">
+          {(provided, snapshot) => (
+            <ul ref={provided.innerRef}>
+              {selectedStations.map((s, i) => (
+                <Draggable key={data[s].id} draggableId={data[s].id} index={i}>
+                  {(provided, snapshot) => (
+                    <li
+                      ref={provided.innerRef}
+                      key={data[s].id}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                    >
+                      {data[s].name} ({data[s].city})
+                    </li>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
     );
   }
 
-  roundingFormatter = cell => {
-    return cell.toFixed(3);
-  };
+  handleDragEnd(event) {
+    // dropped outside the list
+    if (!event.destination) {
+      return;
+    }
 
-  addStationToSelected(station) {
-    const id = station.id;
-
-    if (this.state.selectedStations.includes(id)) return;
+    const newOrder = reorder(
+      this.state.selectedStations,
+      event.source.index,
+      event.destination.index
+    );
 
     this.setState({
-      selectedStations: this.state.selectedStations.concat(id)
+      selectedStations: newOrder
     });
   }
 }
 
-class AddButton extends React.Component {
-  render() {
-    return (
-      <Button onClick={() => this.props.onClick(this.props.row)}>
-        Hinzufügen
-      </Button>
-    );
-  }
-}
+const reorder = (list, startIndex, endIndex) => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+
+  return result;
+};
 
 export default Wogits;
