@@ -33,7 +33,7 @@ foreach ($stations as $index => $station) {
         $stationdataRaw = FALSE;
     }
 
-    if ($stationdataRaw === FALSE || ($stationdata = json_decode($stationdataRaw)) === FALSE) {
+    if ($stationdataRaw === FALSE || ($stationdata = json_decode($stationdataRaw)) === FALSE || $stationdata === NULL) {
         // Fetch data
         $stationdataRaw = file_get_contents(PUBLIBIKEAPI . 'stations/' . $station->id);
 
