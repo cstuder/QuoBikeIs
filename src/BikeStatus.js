@@ -93,7 +93,8 @@ class BikeStatus extends React.Component {
       let bFixed = b - 90; // The arrow is heading towards 90°...
 
       let rotation = {
-        transform: `rotate(${bFixed}deg)`
+        transform: `rotate(${bFixed}deg)`,
+        display: "inline-block"
       };
 
       distance = (
