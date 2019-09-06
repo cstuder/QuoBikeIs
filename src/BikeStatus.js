@@ -63,7 +63,7 @@ class BikeStatus extends React.Component {
     const mapurl = `https://www.google.com/maps/search/?api=1&query=${data.latitude},${data.longitude}`;
     const name = (
       <span>
-        <a href={mapurl}>{data.name}</a> ({data.network.name})
+        <a href={mapurl}>{data.name}, {data.city}</a>
       </span>
     );
     var bikes = 0;
@@ -81,7 +81,7 @@ class BikeStatus extends React.Component {
 
     const status = (
       <span>
-        {bikes} 🚲 / {ebikes} 🔋
+        {bikes} 🚲&nbsp;&nbsp;{ebikes} 🔋
       </span>
     );
 
@@ -89,8 +89,16 @@ class BikeStatus extends React.Component {
 
     if (this.props.location) {
       let d = Math.ceil(haversine(data, this.props.location));
-      let b = Math.ceil(bearing(data, this.props.location));
-      let bFixed = b - 90; // The arrow is heading towards 90°...
+      let u = 'm';
+
+      if (d >= 1000) {
+        d = Math.ceil(d / 100) / 10;
+        u = 'km';
+      }
+
+      let b = Math.ceil(bearing(data, this.props.location)) - 90; // Strangely the bearing is 90° off.
+      let bNormalized = (b + 360) % 360;
+      let bFixed = b - 90; // The arrow is bearing towards 90° too.
 
       let rotation = {
         transform: `rotate(${bFixed}deg)`,
@@ -99,8 +107,8 @@ class BikeStatus extends React.Component {
 
       distance = (
         <>
-          <span>{d} m</span>{" "}
-          <span style={rotation} title={b + "°"}>
+          <span>{d} {u}</span>{" "}
+          <span style={rotation} title={bNormalized + "°"}>
             ➤
           </span>
         </>
