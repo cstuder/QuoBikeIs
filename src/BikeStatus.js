@@ -5,9 +5,9 @@ import { Spinner } from "react-bootstrap";
 import { haversine, bearing } from "./utils";
 
 export function BikeStatusList(props) {
-  return props.ids.map(id => (
-    <BikeStatus id={id} key={id} location={props.location} />
-  ));
+  return props.ids.map(id =>
+    isNaN(id) ? <hr /> : <BikeStatus id={id} key={id} location={props.location} />
+  );
 }
 
 class BikeStatus extends React.Component {
