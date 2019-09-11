@@ -22,7 +22,7 @@ function AppRouter() {
           <Route path="/hetsno/:ids" component={Hetsno} />
           <Route path="/hetsno" component={Hetsno} />
           <Route path="/wogits" component={Wogits} />
-          <Route path="/hie" component={Hie} />
+          <Route path="/hieume" component={Hie} />
           <Route component={RedirectToIndex} />
         </Switch>
       </Container>
@@ -64,7 +64,10 @@ function Index() {
 
       <h3>Nahegelegene Stationen finden</h3>
 
-      <p>Klick auf den <Link to="/hie">Nächstgelegenen Link hier</Link> um die dir 10 nächstgelegenen Stationen zu finden.</p>
+      <p>
+        Klick auf den <Link to="/hieume">Nächstgelegenen Link hier</Link> um die
+        dir 10 nächstgelegenen Stationen zu finden.
+      </p>
 
       <h3>Über</h3>
 
@@ -74,7 +77,10 @@ function Index() {
         <a href="http://bureau.existenz.ch/">Bureau für digitale Existenz</a>.
       </p>
 
-      <p>Diese Webseite zeichnet keine Besuche auf, speichert deine Position nicht und hat keine Werbung installiert.</p>
+      <p>
+        Diese Webseite zeichnet keine Besuche auf, speichert deine Position
+        nicht und hat keine Werbung installiert.
+      </p>
 
       <p>
         Quellcode:{" "}
@@ -82,7 +88,6 @@ function Index() {
           https://github.com/cstuder/QuoBikeIs/
         </a>
       </p>
-
     </>
   );
 }

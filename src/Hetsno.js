@@ -21,7 +21,7 @@ function Hetsno(props) {
       <BikeStatusList ids={ids} />
       Wohetsno.bike - <Link to="/">Zurück zum Start</Link> -{" "}
       <Link to="/wogits">Zur Stationsauswahl</Link> -{" "}
-      <Link to="/hie">Nächstgelegene Stationen</Link>
+      <Link to="/hieume">Nächstgelegene Stationen</Link>
     </>
   );
 }
