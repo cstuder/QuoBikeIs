@@ -13,11 +13,6 @@ export function haversine(start, end, unit = "meter") {
     meter: 6371000
   };
 
-  // convert to radians
-  let toRad = function(num) {
-    return (num * Math.PI) / 180;
-  };
-
   const R = unit in RADII ? RADII[unit] : RADII.meter;
 
   const dLat = toRad(end.latitude - start.latitude);
@@ -34,7 +29,7 @@ export function haversine(start, end, unit = "meter") {
 }
 
 /**
- * Calculate bearing between two coordinates
+ * Calculate initial bearing between two coordinates
  *
  * @param {Object} start = {latitude: ..., longitude: ...}
  * @param {Object} end = {latitude: ..., longitude: ...}
@@ -42,10 +37,10 @@ export function haversine(start, end, unit = "meter") {
  * @link https://www.movable-type.co.uk/scripts/latlong.html
  */
 export function bearing(start, end) {
-  const λ1 = start.latitude;
-  const λ2 = end.latitude;
-  const φ1 = start.longitude;
-  const φ2 = end.longitude;
+  const λ1 = toRad(start.latitude);
+  const λ2 = toRad(end.latitude);
+  const φ1 = toRad(start.longitude);
+  const φ2 = toRad(end.longitude);
 
   const y = Math.sin(λ2 - λ1) * Math.cos(φ2);
   const x =
@@ -54,4 +49,14 @@ export function bearing(start, end) {
   const brng = (Math.atan2(y, x) * 180) / Math.PI;
 
   return brng;
+}
+
+/**
+ * Convert degrees to radians
+ *
+ * @param {Float} deg
+ * @return {Float}
+ */
+function toRad(deg) {
+  return (deg * Math.PI) / 180;
 }
