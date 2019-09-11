@@ -37,15 +37,22 @@ function Index() {
     <>
       <h2>Wohetsno.bike</h2>
       <p>
-        Schneller Überblick über deine PubliBike-Favoriten-Standorte. Zeigt dir
-        alle aktuellen verfügbaren Velos und E-Bikes an.
+        Schneller Überblick über PubliBike-Standorte. Zeigt dir alle aktuellen
+        verfügbaren Velos und E-Bikes an.
       </p>
       <p>
         Unoffizielle Webseite für das Angebot von{" "}
         <a href="https://www.publibike.ch">PubliBike</a>.
       </p>
 
-      <h3>Anleitung</h3>
+      <h3>Nahegelegene Stationen finden</h3>
+
+      <p>
+        Klick auf den <Link to="/hieume">Nächstgelegenen Link hier</Link> um die
+        dir 10 nächstgelegenen Stationen zu finden.
+      </p>
+
+      <h3>Favoriten zusammenstellen</h3>
 
       <ol>
         <li>
@@ -57,16 +64,9 @@ function Index() {
       </ol>
       <p>
         Beispiel:{" "}
-        <Link to="/hetsno/217,105,165,25,233,58,146">
-          {appUrl}217,105,165,25,233,58,146
+        <Link to="/hetsno/217,105,165,-,25,233,58,146">
+          {appUrl}217,105,165,-,25,233,58,146
         </Link>
-      </p>
-
-      <h3>Nahegelegene Stationen finden</h3>
-
-      <p>
-        Klick auf den <Link to="/hieume">Nächstgelegenen Link hier</Link> um die
-        dir 10 nächstgelegenen Stationen zu finden.
       </p>
 
       <h3>Über</h3>
@@ -74,7 +74,7 @@ function Index() {
       <p>
         Eine Webseite von{" "}
         <a href="mailto:cstuder@existenz.ch">Christian Studer</a> &ndash;{" "}
-        <a href="http://bureau.existenz.ch/">Bureau für digitale Existenz</a>.
+        <a href="https://bureau.existenz.ch/">Bureau für digitale Existenz</a>.
       </p>
 
       <p>
