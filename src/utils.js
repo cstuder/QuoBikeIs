@@ -42,16 +42,16 @@ export function haversine(start, end, unit = "meter") {
  * @link https://www.movable-type.co.uk/scripts/latlong.html
  */
 export function bearing(start, end) {
-  let λ1 = start.latitude;
-  let λ2 = end.latitude;
-  let φ1 = start.longitude;
-  let φ2 = end.longitude;
+  const λ1 = start.latitude;
+  const λ2 = end.latitude;
+  const φ1 = start.longitude;
+  const φ2 = end.longitude;
 
-  let y = Math.sin(λ2 - λ1) * Math.cos(φ2);
-  let x =
+  const y = Math.sin(λ2 - λ1) * Math.cos(φ2);
+  const x =
     Math.cos(φ1) * Math.sin(φ2) -
     Math.sin(φ1) * Math.cos(φ2) * Math.cos(λ2 - λ1);
-  let brng = (Math.atan2(y, x) * 180) / Math.PI;
+  const brng = (Math.atan2(y, x) * 180) / Math.PI;
 
   return brng;
 }
