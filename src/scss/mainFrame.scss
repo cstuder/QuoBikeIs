@@ -45,3 +45,29 @@
         }
     }
 }
+
+//hewtsno page
+@include smUp {
+    .hetsno {
+        min-height: 100vh;
+        @include flexBox(row-reverse, center, center);
+        .hetsnoDings {
+            @include flexBox(column, center, center);
+            min-width: $sidebarWidth;
+            background-color: $mainColor;
+            padding: 20px;
+            min-height: 100vh;
+            img {
+                max-width: 200px;
+                margin-bottom: 20px;
+            }
+        }
+        .hetsnoContainer {
+            @include flexBox(null, center, center);
+            height: 100vh;
+            flex: 1;
+            overflow: auto;
+            padding: 40px;
+        }
+    }
+}
