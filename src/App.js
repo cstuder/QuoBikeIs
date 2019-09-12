@@ -34,7 +34,7 @@ function Index() {
   const appUrl = `${window.location.origin.toString()}/hetsno/`;
 
   return (
-    <>
+    <div className="index">
       <h2>Wohetsno.bike</h2>
       <p>
         Schneller Überblick über PubliBike-Standorte. Zeigt dir alle aktuellen
@@ -88,7 +88,7 @@ function Index() {
           https://github.com/cstuder/QuoBikeIs/
         </a>
       </p>
-    </>
+    </div>
   );
 }
 
