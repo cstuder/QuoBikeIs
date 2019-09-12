@@ -1,1 +1,24 @@
 $mainColor: red;
+
+$mainFont: "Inter", sans-serif;
+
+@mixin flexBox($directionVlaue: row, $justifyValue: flex-start, $alignValue: baseline) {
+  display: flex;
+  flex-direction: $directionVlaue;
+  justify-content: $justifyValue;
+  align-items: $alignValue;
+}
+
+
+@mixin fontSize($sizeValue: 1, $lhValue: 1, $lsValue: 0, $wsValue: 0) {
+    font-size: ($sizeValue * 10) + px;
+    font-size: $sizeValue + rem;
+    line-height: $lhValue;
+    font-feature-settings:"kern" 1;
+    letter-spacing: $lsValue + em;
+    word-spacing: $wsValue + em;
+    -webkit-font-smoothing: antialiased; //for osx
+    -moz-osx-font-smoothing: grayscale; // for osx
+    font-weight: normal;
+    font-family: $mainFont;
+  }

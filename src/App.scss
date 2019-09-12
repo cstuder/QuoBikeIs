@@ -1,5 +1,6 @@
+@import "/../node_modules/gugus-media-queries/gugus-media-queries";
+
 @import 'scss/variables';
 
-h1, h2, h3 {
-    margin-top: 25px;
-}
+@import 'scss/mainFrame';
+@import 'scss/typography';
