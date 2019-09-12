@@ -1,8 +1,12 @@
 $mainColor: #e49445;
-
-$linkColor: green;
+$txtColor: #8a4c0f;
+$txtInvert: white;
+$linkColor: #467359;
+$linkBgColor: lighten($linkColor, 10%);
 
 $mainFont: "Inter", sans-serif;
+
+$sidebarWidth: 500px;
 
 @mixin flexBox($directionVlaue: row, $justifyValue: flex-start, $alignValue: baseline) {
   display: flex;
@@ -22,6 +26,11 @@ $mainFont: "Inter", sans-serif;
   -moz-osx-font-smoothing: grayscale; // for osx
   font-weight: normal;
   font-family: $mainFont;
+}
+
+@mixin dingsContainer() {
+  max-width: 1200px;
+  margin: auto;
 }
 
 @import url("https://rsms.me/inter/inter.css");

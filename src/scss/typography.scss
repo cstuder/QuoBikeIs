@@ -2,12 +2,31 @@ body {
   font-family: $mainFont;
 }
 
-p, li, a {
+p, li, a, td, th, button {
     @extend %fontM;
+    color: $txtColor
+}
+.btn-primary {
+    font-family: $mainFont;
+    border-color: $linkBgColor;
+    background: $linkBgColor;
+    color: $txtInvert;
+    &:hover {
+        //color: $txtColor;
+        background: lighten($linkBgColor, 10%);
+        border-color: lighten($linkBgColor, 10%);
+    }
+    &:active, &:focus {
+        background: $mainColor !important;
+        border-color: $mainColor !important;
+    }
 }
 .introTitle {
     @extend %fontXXL;
     font-weight: 300;
+}
+.mainTitle {
+    @extend %fontXL;
 }
 .subTitle {
     @extend %fontL;

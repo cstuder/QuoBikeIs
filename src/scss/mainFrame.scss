@@ -3,6 +3,8 @@
         padding: 0;
     }
 }
+
+//start page
 @include smUp {
     .index {
         @include flexBox(row-reverse, center, center);
@@ -14,8 +16,32 @@
         }
         .lander {
             @include flexBox(null, center, center);
-            min-width: 500px;
+            min-width: $sidebarWidth;
             min-height: 100vh;
+        }
+    }
+}
+
+//table page
+@include smUp {
+    .wogits {
+        min-height: 100vh;
+        //@include dingsContainer();
+        @include flexBox(row-reverse, center, center);
+        .outputContainer {
+            @include flexBox(column, center, center);
+            min-width: $sidebarWidth;
+            background-color: $mainColor;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .inputContainer {
+            height: 100vh;
+            overflow: auto;
+            padding: 40px;
+            .react-bootstrap-table {
+                padding-top: 20px;
+            }
         }
     }
 }

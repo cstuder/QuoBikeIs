@@ -4,3 +4,52 @@
         margin-bottom: 20px;
     }
 }
+
+//stations tabelle
+.wogits {
+    .outputContainer {
+        input {
+            @extend %fontXXL;
+            background: transparent;
+            border: none;
+        }
+        img {
+            max-width: 200px;
+            margin-bottom: 40px;
+        }
+    }
+    .inputContainer {
+        .pagination {
+            .page-item {
+                &.active {
+                    .page-link {
+                        background: $linkBgColor;
+                        border-color: $linkBgColor;
+                        color: $txtInvert;
+                    }
+                }
+                .page-link {
+                    color: $linkColor;
+                }
+            }
+        }
+    }
+}
+
+
+
+// das funktioniert alles noch nicht.
+@include smDown {
+    table {
+        thead {}
+        tbody {
+            @include flexBox(column, flex-start, null);
+            tr {
+                display: table-row;
+                td {
+                    display: table-cell;
+                }
+            }
+        }
+    }
+}
