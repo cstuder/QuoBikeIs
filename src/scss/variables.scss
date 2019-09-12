@@ -1,1 +1,77 @@
-$mainColor: red;
+$mainColor: #e49445;
+$txtColor: #8a4c0f;
+$txtInvert: white;
+$linkColor: #467359;
+$linkBgColor: lighten($linkColor, 10%);
+
+$mainFont: "Inter", sans-serif;
+
+$sidebarWidth: 500px;
+
+@mixin flexBox($directionVlaue: row, $justifyValue: flex-start, $alignValue: baseline) {
+  display: flex;
+  flex-direction: $directionVlaue;
+  justify-content: $justifyValue;
+  align-items: $alignValue;
+}
+
+@mixin fontSize($sizeValue: 1, $lhValue: 1, $lsValue: 0, $wsValue: 0) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+  line-height: $lhValue;
+  font-feature-settings: "kern" 1;
+  letter-spacing: $lsValue + em;
+  word-spacing: $wsValue + em;
+  -webkit-font-smoothing: antialiased; //for osx
+  -moz-osx-font-smoothing: grayscale; // for osx
+  font-weight: normal;
+  font-family: $mainFont;
+}
+
+@mixin dingsContainer() {
+  max-width: 1200px;
+  margin: auto;
+}
+
+@import url("https://rsms.me/inter/inter.css");
+html {
+  font-family: $mainFont;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: $mainFont;
+  }
+}
+
+%fontXXL {
+  @include fontSize(2.5, 1.2);
+  @include smUp {
+    @include fontSize(4.5, 1.3);
+  }
+  margin: 0;
+}
+%fontXL {
+  @include fontSize(1.7, 1.2);
+  @include smUp {
+    @include fontSize(1.8, 1.2);
+  }
+  margin: 0;
+}
+%fontL {
+  @include fontSize(1.3, 1.2);
+  @include smUp {
+    @include fontSize(1.6, 1.4);
+  }
+}
+%fontM {
+  @include fontSize(1.2, 1.5);
+  @include smUp {
+    @include fontSize(1.3, 1.6);
+  }
+}
+%fontS {
+  @include fontSize(1.1, 1.5);
+}
+%fontXS {
+  @include fontSize(0.9, 1.2);
+}
