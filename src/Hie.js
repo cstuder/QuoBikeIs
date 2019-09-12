@@ -66,14 +66,14 @@ class Hie extends React.Component {
         <Link to="/">Zurück zum Start.</Link>
       </div>
     ) : this.props.coords ? (
-      <>
+      <div className="hieume">
         <BikeStatusList
           ids={this.findClosestStations(data, this.props.coords)}
           location={this.props.coords}
         />
         Wohetsno.bike - <Link to="/">Zurück zum Start</Link> -{" "}
         <Link to="/wogits">Zur Stationsauswahl</Link>
-      </>
+      </div>
     ) : (
       <div>
         Versuche dich mit dem GPS zu lokalisieren...{" "}

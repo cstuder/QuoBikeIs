@@ -17,12 +17,12 @@ function Hetsno(props) {
   const ids = props.match.params.ids.split(",");
 
   return (
-    <>
+    <div className="hetsno">
       <BikeStatusList ids={ids} />
       Wohetsno.bike - <Link to="/">Zurück zum Start</Link> -{" "}
       <Link to="/wogits">Zur Stationsauswahl</Link> -{" "}
       <Link to="/hieume">Nächstgelegene Stationen</Link>
-    </>
+    </div>
   );
 }
 

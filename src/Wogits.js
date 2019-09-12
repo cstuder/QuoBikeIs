@@ -106,7 +106,7 @@ class Wogits extends React.Component {
     };
 
     return (
-      <>
+      <div className="wogits">
         <Form.Control
           type="text"
           value={this.state.selectedStations.join(",")}
@@ -136,7 +136,7 @@ class Wogits extends React.Component {
             </div>
           )}
         </PaginationProvider>
-      </>
+      </div>
     );
   }
 
