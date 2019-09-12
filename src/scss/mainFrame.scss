@@ -1,17 +1,21 @@
-.index {
-    @include flexBox(null, center, center);
-    margin: 0;
-    padding: 0;
-    .intro {
-        @include flexBox(null, center, center);
-        flex: 1;
-        padding: 20px;
-        min-height: 100vh;
+@include smUp {
+    div.container-fluid {
+        padding: 0;
     }
-    .lander {
-        @include flexBox(null, center, center);
-        background-color: $mainColor;
-        min-width: 500px;
-        min-height: 100vh;
+}
+@include smUp {
+    .index {
+        @include flexBox(row-reverse, center, center);
+        .intro {
+            @include flexBox(null, center, center);
+            flex: 1;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .lander {
+            @include flexBox(null, center, center);
+            min-width: 500px;
+            min-height: 100vh;
+        }
     }
 }
