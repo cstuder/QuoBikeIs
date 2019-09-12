@@ -1,40 +1,23 @@
-@import url("https://rsms.me/inter/inter.css");
-html {
-  font-family: $mainFont;
-}
-@supports (font-variation-settings: normal) {
-  html {
-    font-family:  $mainFont;
-  }
-}
-
-
 body {
   font-family: $mainFont;
 }
 
-
-%fontXXL {
-    @include fontSize(2.5,1.2);
-    @include smUp { @include fontSize(4.5,1.3); }
-    margin: 0;
-  }
-  %fontXL {
-    @include fontSize(1.7,1.2);
-    @include smUp { @include fontSize(1.8,1.2); }
-    margin: 0;
-  }
-  %fontL {
-    @include fontSize(1.3,1.2);
-    @include smUp { @include fontSize(1.6,1.4); }
-  }
-  %fontM {
-    @include fontSize(1.2,1.5);
-    @include smUp { @include fontSize(1.3,1.6); }
-  }
-  %fontS {
-    @include fontSize(1.1,1.5);
-  }
-  %fontXS {
-    @include fontSize(0.9,1.2);
-  }
+p, li, a {
+    @extend %fontM;
+}
+.introTitle {
+    @extend %fontXXL;
+    font-weight: 300;
+}
+.subTitle {
+    @extend %fontL;
+    font-weight: 700;
+}
+a {
+    color: $linkColor;
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+        color: lighten($linkColor, 10%);
+    }
+}
