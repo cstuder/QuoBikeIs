@@ -26,7 +26,7 @@
       margin-bottom: 30px;
     }
     .landerContent {
-        text-align: center;
+      text-align: center;
     }
     @include smUp {
       @include flexBox(null, center, center);
@@ -37,19 +37,30 @@
 }
 
 //table page
-@include smUp {
-  .wogits {
-    min-height: 100vh;
-    //@include dingsContainer();
+
+.wogits {
+  min-height: 100vh;
+  @include smUp {
     @include flexBox(row-reverse, center, center);
-    .outputContainer {
+  }
+  .outputContainer {
+    background-color: $mainColor;
+    @include smDown {
+      margin-left: -15px;
+      margin-right: -15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    @include smUp {
       @include flexBox(column, center, center);
       min-width: $sidebarWidth;
-      background-color: $mainColor;
       padding: 20px;
       min-height: 100vh;
     }
-    .inputContainer {
+  }
+  .inputContainer {
+    @include smUp {
       height: 100vh;
       overflow: auto;
       padding: 40px;
