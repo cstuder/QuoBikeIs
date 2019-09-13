@@ -1,73 +1,87 @@
 @include smUp {
-    div.container-fluid {
-        padding: 0;
-    }
+  div.container-fluid {
+    padding: 0;
+  }
 }
 
 //start page
-@include smUp {
-    .index {
-        @include flexBox(row-reverse, center, center);
-        .intro {
-            @include flexBox(null, center, center);
-            flex: 1;
-            padding: 20px;
-            min-height: 100vh;
-        }
-        .lander {
-            @include flexBox(null, center, center);
-            min-width: $sidebarWidth;
-            min-height: 100vh;
-        }
+
+.index {
+  @include smUp {
+    @include flexBox(row-reverse, center, center);
+  }
+  .intro {
+    @include smUp {
+      @include flexBox(null, center, center);
+      flex: 1;
+      padding: 20px;
+      min-height: 100vh;
     }
+  }
+  .lander {
+    @include smDown {
+      margin-left: -15px;
+      margin-right: -15px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .landerContent {
+        text-align: center;
+    }
+    @include smUp {
+      @include flexBox(null, center, center);
+      min-width: $sidebarWidth;
+      min-height: 100vh;
+    }
+  }
 }
 
 //table page
 @include smUp {
-    .wogits {
-        min-height: 100vh;
-        //@include dingsContainer();
-        @include flexBox(row-reverse, center, center);
-        .outputContainer {
-            @include flexBox(column, center, center);
-            min-width: $sidebarWidth;
-            background-color: $mainColor;
-            padding: 20px;
-            min-height: 100vh;
-        }
-        .inputContainer {
-            height: 100vh;
-            overflow: auto;
-            padding: 40px;
-            .react-bootstrap-table {
-                padding-top: 20px;
-            }
-        }
+  .wogits {
+    min-height: 100vh;
+    //@include dingsContainer();
+    @include flexBox(row-reverse, center, center);
+    .outputContainer {
+      @include flexBox(column, center, center);
+      min-width: $sidebarWidth;
+      background-color: $mainColor;
+      padding: 20px;
+      min-height: 100vh;
     }
+    .inputContainer {
+      height: 100vh;
+      overflow: auto;
+      padding: 40px;
+      .react-bootstrap-table {
+        padding-top: 20px;
+      }
+    }
+  }
 }
 
 //hewtsno page
 @include smUp {
-    .hetsno {
-        min-height: 100vh;
-        @include flexBox(row-reverse, center, center);
-        .hetsnoDings {
-            @include flexBox(column, center, center);
-            min-width: $sidebarWidth;
-            background-color: $mainColor;
-            padding: 20px;
-            min-height: 100vh;
-            img {
-                max-width: 200px;
-                margin-bottom: 20px;
-            }
-        }
-        .hetsnoContainer {
-            @include flexBox(null, center, center);
-            height: 100vh;
-            flex: 1;
-            overflow: auto;
-            padding: 40px;
-        }
+  .hetsno {
+    min-height: 100vh;
+    @include flexBox(row-reverse, center, center);
+    .hetsnoDings {
+      @include flexBox(column, center, center);
+      min-width: $sidebarWidth;
+      background-color: $mainColor;
+      padding: 20px;
+      min-height: 100vh;
+      img {
+        max-width: 200px;
+        margin-bottom: 20px;
+      }
     }
+    .hetsnoContainer {
+      @include flexBox(null, center, center);
+      height: 100vh;
+      flex: 1;
+      overflow: auto;
+      padding: 40px;
+    }
+  }
 }

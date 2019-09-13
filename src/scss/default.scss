@@ -40,16 +40,8 @@
 
 // das funktioniert alles noch nicht.
 @include smDown {
-    table {
-        thead {}
-        tbody {
-            @include flexBox(column, flex-start, null);
-            tr {
-                display: table-row;
-                td {
-                    display: table-cell;
-                }
-            }
-        }
+    img {
+        max-width: 150px;
+        margin: auto;
     }
 }
