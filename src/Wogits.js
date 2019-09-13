@@ -115,7 +115,7 @@ class Wogits extends React.Component {
             value={this.state.selectedStations.join(",")}
             disabled
           />
-          <button className="btn btn-primary">Zu deinen Stationen</button>
+          <button className="btn btn-primary">Zu deinen Stationen (not working yet)</button>
         </div>
         <div className="inputContainer">
           <h1 className="introTitle">Wähle deine Stationen</h1>

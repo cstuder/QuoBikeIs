@@ -1,12 +1,14 @@
-$mainColor: #e49445;
-$txtColor: #8a4c0f;
+$mainColor: #abfffa;
+$bgColor: #fafeff;
+$txtColor: #0b1d44;
 $txtInvert: white;
-$linkColor: #467359;
+$linkColor: #33b91b;
 $linkBgColor: lighten($linkColor, 10%);
 
 $mainFont: "Inter", sans-serif;
 
 $sidebarWidth: 500px;
+$defaultPadding: 15px;
 
 @mixin flexBox($directionVlaue: row, $justifyValue: flex-start, $alignValue: baseline) {
   display: flex;
@@ -51,9 +53,9 @@ html {
   margin: 0;
 }
 %fontXL {
-  @include fontSize(1.7, 1.2);
+  @include fontSize(1.5, 1.2);
   @include smUp {
-    @include fontSize(1.8, 1.2);
+    @include fontSize(3, 1.9);
   }
   margin: 0;
 }
@@ -70,7 +72,7 @@ html {
   }
 }
 %fontS {
-  @include fontSize(1.1, 1.5);
+  @include fontSize(1.1, 1.2);
 }
 %fontXS {
   @include fontSize(0.9, 1.2);

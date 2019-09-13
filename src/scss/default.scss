@@ -19,6 +19,11 @@
         }
     }
     .inputContainer {
+        table {
+            tr {
+                border: solid 1px red !important;
+            }
+        }
         .pagination {
             .page-item {
                 &.active {
@@ -40,16 +45,12 @@
 
 // das funktioniert alles noch nicht.
 @include smDown {
-    table {
-        thead {}
-        tbody {
-            @include flexBox(column, flex-start, null);
-            tr {
-                display: table-row;
-                td {
-                    display: table-cell;
-                }
-            }
-        }
+    img {
+        max-width: 150px;
+        margin: auto;
     }
+}
+
+hr {
+    border-top: 4px solid $mainColor;
 }
