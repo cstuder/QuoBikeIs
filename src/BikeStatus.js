@@ -63,7 +63,8 @@ class BikeStatus extends React.Component {
     const mapurl = `https://www.google.com/maps/search/?api=1&query=${data.latitude},${data.longitude}`;
     const name = (
       <span>
-        <a href={mapurl}>{data.name}, {data.city}</a>
+        <a href={mapurl}> 🗺</a>
+        <span>{data.name}, {data.city}</span>
       </span>
     );
     var bikes = 0;

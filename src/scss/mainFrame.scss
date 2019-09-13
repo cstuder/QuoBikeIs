@@ -20,10 +20,10 @@
   }
   .lander {
     @include smDown {
-      margin-left: -15px;
-      margin-right: -15px;
-      padding: 20px;
-      margin-bottom: 30px;
+      margin-left: -$defaultPadding;
+      margin-right: -$defaultPadding;
+      padding: $defaultPadding;
+      margin-bottom: $defaultPadding;
     }
     .landerContent {
       text-align: center;
@@ -46,16 +46,16 @@
   .outputContainer {
     background-color: $mainColor;
     @include smDown {
-      margin-left: -15px;
-      margin-right: -15px;
-      padding: 20px;
-      margin-bottom: 30px;
+      margin-left: -$defaultPadding;
+      margin-right: -$defaultPadding;
+      padding: $defaultPadding;
+      margin-bottom: $defaultPadding;
       text-align: center;
     }
+    padding: 20px;
     @include smUp {
       @include flexBox(column, center, center);
       min-width: $sidebarWidth;
-      padding: 20px;
       min-height: 100vh;
     }
   }
@@ -63,36 +63,48 @@
     @include smUp {
       height: 100vh;
       overflow: auto;
-      padding: 40px;
-      .react-bootstrap-table {
-        padding-top: 20px;
-      }
+      padding: $defaultPadding;
+    }
+    .react-bootstrap-table {
+      padding-top: 20px;
     }
   }
 }
 
 //hewtsno page
-@include smUp {
-  .hetsno {
+
+.hetsno {
+  @include smUp {
     min-height: 100vh;
     @include flexBox(row-reverse, center, center);
-    .hetsnoDings {
-      @include flexBox(column, center, center);
-      min-width: $sidebarWidth;
-      background-color: $mainColor;
-      padding: 20px;
-      min-height: 100vh;
-      img {
-        max-width: 200px;
-        margin-bottom: 20px;
-      }
+  }
+  .hetsnoDings {
+    @include smDown {
+      margin-left: -$defaultPadding;
+      margin-right: -$defaultPadding;
+      padding: $defaultPadding;
+      margin-bottom: $defaultPadding;
+      text-align: center;
     }
-    .hetsnoContainer {
+    @include smUp {
+      @include flexBox(column, center, center);
+      min-height: 100vh;
+      min-width: $sidebarWidth;
+    }
+    background-color: $mainColor;
+    padding: $defaultPadding;
+    img {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+  }
+  .hetsnoContainer {
+    @include smUp {
       @include flexBox(null, center, center);
       height: 100vh;
-      flex: 1;
-      overflow: auto;
-      padding: 40px;
     }
+    flex: 1;
+    overflow: auto;
+    padding: $defaultPadding;
   }
 }

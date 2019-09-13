@@ -7,6 +7,7 @@ $linkBgColor: lighten($linkColor, 10%);
 $mainFont: "Inter", sans-serif;
 
 $sidebarWidth: 500px;
+$defaultPadding: 15px;
 
 @mixin flexBox($directionVlaue: row, $justifyValue: flex-start, $alignValue: baseline) {
   display: flex;
