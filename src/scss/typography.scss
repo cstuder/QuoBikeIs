@@ -1,60 +1,85 @@
 body {
   font-family: $mainFont;
 }
-
-p, li, a, td, th, button {
-    @extend %fontM;
-    color: $txtColor
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $txtColor;
+}
+p,
+li,
+a,
+td,
+th,
+button {
+  @extend %fontM;
+  color: $txtColor;
+  font-weight: 400;
 }
 .btn-primary {
-    font-family: $mainFont;
-    border-color: $linkBgColor;
-    background: $linkBgColor;
-    color: $txtInvert;
-    &:hover {
-        //color: $txtColor;
-        background: lighten($linkBgColor, 10%);
-        border-color: lighten($linkBgColor, 10%);
-    }
-    &:active, &:focus {
-        background: $mainColor !important;
-        border-color: $mainColor !important;
-    }
+  font-family: $mainFont;
+  border-color: $linkBgColor;
+  background: $linkBgColor;
+  color: $txtInvert;
+  &:hover {
+    //color: $txtColor;
+    background: lighten($linkBgColor, 10%);
+    border-color: lighten($linkBgColor, 10%);
+  }
+  &:active,
+  &:focus {
+    background: $mainColor !important;
+    border-color: $mainColor !important;
+  }
 }
 .introTitle {
-    @extend %fontXXL;
-    font-weight: 300;
+  @extend %fontXXL;
+  font-weight: 300;
 }
 .mainTitle {
-    @extend %fontXL;
+  @extend %fontXL;
 }
 .subTitle {
-    @extend %fontL;
-    font-weight: 700;
+  @extend %fontL;
+  font-weight: 700;
 }
 a {
-    color: $linkColor;
-    text-decoration: underline;
-    &:hover {
-        text-decoration: none;
-        color: lighten($linkColor, 10%);
-    }
+  color: $linkColor;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+    color: lighten($linkColor, 10%);
+  }
 }
 .locationEntry {
-    @extend %fontXL;
-    @include smUp {
-        @include flexBox(null, space-between, center);
-        padding: 0 $defaultPadding;
-    }
-    span {
-        @include flexBox(null, flex-start, center);
-    }
-    border-bottom: 5px solid $mainColor;
-    a {
-        text-decoration: none;
-    }
-    &:hover {
-        background-color: $mainColor;
-        cursor: pointer;
-    }
+  @extend %fontXL;
+  @include flexBox(null, space-between, center);
+  padding: $defaultPadding / 2  0;
+  @include smUp {
+    padding: 0 $defaultPadding;
+  }
+  span {
+    @include flexBox(null, flex-start, center);
+  }
+  border-bottom: 5px solid $mainColor;
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: $mainColor;
+    cursor: pointer;
+  }
+  .locName {
+      font-weight: 800;
+  }
+}
+.about {
+  margin-top: 50px;
+  p,
+  h3 {
+    @extend %fontS;
+  }
 }

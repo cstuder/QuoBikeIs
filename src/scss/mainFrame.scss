@@ -1,6 +1,7 @@
 @include smUp {
   div.container-fluid {
     padding: 0;
+    background-color: $bgColor;
   }
 }
 
@@ -45,12 +46,12 @@
   }
   .outputContainer {
     background-color: $mainColor;
+    text-align: center;
     @include smDown {
       margin-left: -$defaultPadding;
       margin-right: -$defaultPadding;
       padding: $defaultPadding;
       margin-bottom: $defaultPadding;
-      text-align: center;
     }
     padding: 20px;
     @include smUp {
