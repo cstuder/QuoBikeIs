@@ -40,3 +40,21 @@ a {
         color: lighten($linkColor, 10%);
     }
 }
+.locationEntry {
+    @extend %fontXL;
+    @include smUp {
+        @include flexBox(null, space-between, center);
+        padding: 0 $defaultPadding;
+    }
+    span {
+        @include flexBox(null, flex-start, center);
+    }
+    border-bottom: 5px solid $mainColor;
+    a {
+        text-decoration: none;
+    }
+    &:hover {
+        background-color: $mainColor;
+        cursor: pointer;
+    }
+}

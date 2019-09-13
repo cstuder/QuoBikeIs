@@ -63,8 +63,7 @@ class BikeStatus extends React.Component {
     const mapurl = `https://www.google.com/maps/search/?api=1&query=${data.latitude},${data.longitude}`;
     const name = (
       <span>
-        <a href={mapurl}> 🗺</a>
-        <span>{data.name}, {data.city}</span>
+        <a href={mapurl}><span>🚲 {data.name}, {data.city}</span></a>
       </span>
     );
     var bikes = 0;
@@ -82,7 +81,7 @@ class BikeStatus extends React.Component {
 
     const status = (
       <span>
-        {bikes} 🚲&nbsp;&nbsp;{ebikes} 🔋
+        💪 {bikes} | {ebikes} ⚡️
       </span>
     );
 
@@ -117,8 +116,8 @@ class BikeStatus extends React.Component {
     }
 
     return (
-      <p>
-        {name} {distance} &ndash; {status}
+      <p className="locationEntry">
+        {name} {distance} {status}
       </p>
     );
   }

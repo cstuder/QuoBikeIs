@@ -52,9 +52,9 @@ html {
   margin: 0;
 }
 %fontXL {
-  @include fontSize(1.7, 1.2);
+  @include fontSize(1.5, 1.2);
   @include smUp {
-    @include fontSize(1.8, 1.2);
+    @include fontSize(3, 1.9);
   }
   margin: 0;
 }

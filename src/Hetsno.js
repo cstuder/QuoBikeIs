@@ -21,8 +21,8 @@ function Hetsno(props) {
       <div className="hetsnoDings">
         <img src="/img/wohetsno.svg" alt="Logo" />
         <h1>wohetsno.bike</h1>
-        <Link to="/">Zurück zum Start</Link> -{" "}
-        <Link to="/wogits">Zur Stationsauswahl</Link> -{" "}
+        <Link to="/">Zurück zum Start</Link>{" "}
+        <Link to="/wogits">Zur Stationsauswahl</Link>{" "}
         <Link to="/hieume">Nächstgelegene Stationen</Link>
       </div>
       <div className="hetsnoContainer">
