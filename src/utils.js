@@ -48,7 +48,7 @@ export function bearing(start, end) {
     Math.sin(φ1) * Math.cos(φ2) * Math.cos(λ2 - λ1);
   const brng = (Math.atan2(y, x) * 180) / Math.PI;
 
-  return brng;
+  return (brng + 720 - 90) % 360; // Look, I have no clue why, but this stuff is always 90° off...
 }
 
 /**

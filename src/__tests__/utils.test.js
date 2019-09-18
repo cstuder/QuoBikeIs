@@ -43,20 +43,20 @@ test("Unit conversion in distance", () => {
 });
 
 test("Bearing in place", () => {
-  expect(bearing(bern, bern)).toBe(0);
-  expect(bearing(rio, rio)).toBe(0);
+  expect(bearing(bern, bern)).toBe(270);
+  expect(bearing(rio, rio)).toBe(270);
 });
 
 test("Bearing slightly off", () => {
   const b_n = { ...bern };
   b_n.latitude += 1;
 
-  expect(bearing(bern, b_n)).toBe(0);
-  expect(bearing(b_n, bern)).toBe(-180);
+  expect(bearing(bern, b_n)).toBeCloseTo(360, 0);
+  expect(bearing(b_n, bern)).toBeCloseTo(180, 0);
 
   const b_e = { ...bern };
   b_e.longitude += 1;
 
-  expect(bearing(bern, b_e)).toBeCloseTo(270.3, 1);
-  expect(bearing(b_e, bern)).toBeCloseTo(90, 1);
+  expect(bearing(bern, b_e)).toBeCloseTo(270, 0);
+  expect(bearing(b_e, bern)).toBeCloseTo(90, 0);
 });
