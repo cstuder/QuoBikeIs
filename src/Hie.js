@@ -66,13 +66,21 @@ class Hie extends React.Component {
         <Link to="/">Zurück zum Start.</Link>
       </div>
     ) : this.props.coords ? (
-      <div className="hieume">
-        <BikeStatusList
-          ids={this.findClosestStations(data, this.props.coords)}
-          location={this.props.coords}
-        />
-        Wohetsno.bike - <Link to="/">Zurück zum Start</Link> -{" "}
-        <Link to="/wogits">Zur Stationsauswahl</Link>
+      <div className="hetsno">
+        <div className="hetsnoDings">
+          <img src="/img/wohetsno.svg" alt="Logo" />
+          <h1>wohetsno.bike</h1>
+          <Link to="/">Zurück zum Start</Link>{" "}
+          <Link to="/wogits">Zur Stationsauswahl</Link>{" "}
+        </div>
+        <div className="hetsnoContainer">
+          <div>
+            <BikeStatusList
+              ids={this.findClosestStations(data, this.props.coords)}
+              location={this.props.coords}
+            />
+          </div>
+        </div>
       </div>
     ) : (
       <div>

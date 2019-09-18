@@ -26,9 +26,10 @@ function Hetsno(props) {
         <Link to="/hieume">Nächstgelegene Stationen</Link>
       </div>
       <div className="hetsnoContainer">
-        <div><BikeStatusList ids={ids} /></div>
+        <div>
+          <BikeStatusList ids={ids} />
+        </div>
       </div>
-      
     </div>
   );
 }
