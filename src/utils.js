@@ -37,10 +37,10 @@ export function haversine(start, end, unit = "meter") {
  * @link https://www.movable-type.co.uk/scripts/latlong.html
  */
 export function bearing(start, end) {
-  const λ1 = toRad(start.latitude);
-  const λ2 = toRad(end.latitude);
-  const φ1 = toRad(start.longitude);
-  const φ2 = toRad(end.longitude);
+  const λ1 = toRad(start.longitude);
+  const λ2 = toRad(end.longitude);
+  const φ1 = toRad(start.latitude);
+  const φ2 = toRad(end.latitude);
 
   const y = Math.sin(λ2 - λ1) * Math.cos(φ2);
   const x =
@@ -48,7 +48,7 @@ export function bearing(start, end) {
     Math.sin(φ1) * Math.cos(φ2) * Math.cos(λ2 - λ1);
   const brng = (Math.atan2(y, x) * 180) / Math.PI;
 
-  return (brng + 720 - 90) % 360; // Look, I have no clue why, but this stuff is always 90° off...
+  return (brng + 360) % 360;
 }
 
 /**
