@@ -45,12 +45,14 @@ function Index() {
         <div className="introContent">
           <h2 className="introTitle">Wohetsno.bike</h2>
           <h3 className="subTitle">
-            Schneller Überblick über PubliBike-Standorte. <br /> Zeigt dir alle aktuellen
-            verfügbaren Velos und E-Bikes auf deinen Lieblingsstationen an.
+            Schneller Überblick über PubliBike-Standorte. <br /> Zeigt dir alle
+            aktuellen verfügbaren Velos und E-Bikes auf deinen
+            Lieblingsstationen an.
           </h3>
           <hr />
           <h3 className="subTitle">Nahegelegene Stationen finden</h3>
-          <p>Nächstgelegene Stationen Finden: <Link to="/hieume">Wo hats hier grad Stationen?</Link>
+          <p>
+            <Link to="/hieume">Wo hat's hier grad Stationen?</Link>
           </p>
           <h3 className="subTitle">Stelle deine Favoriten zusammen</h3>
           <ol>
@@ -72,17 +74,22 @@ function Index() {
             <p>
               Eine Webseite von{" "}
               <a href="mailto:cstuder@existenz.ch">Christian Studer</a> &ndash;{" "}
-              <a href="https://bureau.existenz.ch/">Bureau für digitale Existenz</a>. <br />
-              Diese Webseite zeichnet keine Besuche auf, speichert deine Position
-              nicht und hat keine Werbung installiert. <br />
-              Quellcode:{" "} <a href="https://github.com/cstuder/QuoBikeIs/">GitHub</a>
+              <a href="https://bureau.existenz.ch/">
+                Bureau für digitale Existenz
+              </a>
+              .<br />
+              Diese Webseite zeichnet keine Besuche auf, speichert deine
+              Position nicht und hat keine Werbung installiert. <br />
+              Quellcode:{" "}
+              <a href="https://github.com/cstuder/QuoBikeIs/">GitHub</a>
             </p>
-            <p>Unoffizielle Webseite für das Angebot von{" "}
-              <a href="https://www.publibike.ch">PubliBike</a>.</p>
+            <p>
+              Unoffizielle Webseite für das Angebot von{" "}
+              <a href="https://www.publibike.ch">PubliBike</a>.
+            </p>
           </div>
         </div>
       </div>
-
     </div>
   );
 }
