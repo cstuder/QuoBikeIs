@@ -8,7 +8,7 @@
 //start page
 
 .index {
-  @include smUp {
+  @include mdUp {
     @include flexBox(row-reverse, center, center);
   }
   .intro {
@@ -27,11 +27,13 @@
       margin-bottom: $defaultPadding;
     }
     .landerContent {
-      text-align: center;
+      @include mdDown {
+        @include flexBox(null, center, center);
+      }
     }
-    @include smUp {
+    @include mdUp {
       @include flexBox(null, center, center);
-      min-width: $sidebarWidth;
+      padding: 0 $defaultPadding * 2;
       min-height: 100vh;
     }
   }

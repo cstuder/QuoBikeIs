@@ -1,7 +1,20 @@
 .lander {
-    background-color: $mainColor;
+    @include smDown {
+        border-bottom: $veloLine;
+        h1 {
+            @include fontSize(1.8, 1.5);
+        }
+    }
+    @include smUp {
+        border-left: $veloLine;
+        h1 {
+            @include fontSize(2, 1.5);
+        }
+    }
     img {
         margin-bottom: 20px;
+        max-width: 150px;
+        min-width: 50px;
     }
 }
 
@@ -52,5 +65,5 @@
 }
 
 hr {
-    border-top: 4px solid $mainColor;
+    border-top: $veloLine;
 }
