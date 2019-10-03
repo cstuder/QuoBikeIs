@@ -64,10 +64,8 @@ class BikeStatus extends React.Component {
     const name = (
       <span>
         <a href={mapurl}>
-          <div>
-            <span className="locName">{data.name}</span>
+        <span className="locName">{data.name}</span>
             <span className="locCity">{data.city}</span>
-          </div>
         </a>
       </span>
     );

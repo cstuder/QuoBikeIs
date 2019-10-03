@@ -55,16 +55,31 @@ a {
   }
 }
 .locationEntry {
-  @extend %fontXL;
+  @extend %fontL;
   @include flexBox(null, space-between, center);
-  padding: $defaultPadding / 2  0;
-  @include smUp {
-    padding: 0 $defaultPadding;
+  padding-bottom: 10px;
+  @include smDown {
+    flex-wrap: wrap;
   }
   span {
-    @include flexBox(null, flex-start, center);
+    
+    &:first-child {
+      @include smDown {
+        width: 100%;
+        a {
+          @include flexBox(null, flex-start, center);
+          padding-bottom: 5px;
+        }
+      }
+      @include smUp {
+        min-width: 40%;
+        span {
+          display: block;
+        }
+      }
+    }
   }
-  border-bottom: 5px solid $mainColor;
+  border-bottom: $veloLine;
   a {
     text-decoration: none;
   }
@@ -73,7 +88,7 @@ a {
     cursor: pointer;
   }
   .locName {
-      font-weight: 800;
+    font-weight: 800;
   }
 }
 .about {
