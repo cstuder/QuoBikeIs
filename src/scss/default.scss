@@ -1,0 +1,56 @@
+.lander {
+    background-color: $mainColor;
+    img {
+        margin-bottom: 20px;
+    }
+}
+
+//stations tabelle
+.wogits {
+    .outputContainer {
+        input {
+            @extend %fontXXL;
+            background: transparent;
+            border: none;
+        }
+        img {
+            max-width: 200px;
+            margin-bottom: 40px;
+        }
+    }
+    .inputContainer {
+        table {
+            tr {
+                border: solid 1px red !important;
+            }
+        }
+        .pagination {
+            .page-item {
+                &.active {
+                    .page-link {
+                        background: $linkBgColor;
+                        border-color: $linkBgColor;
+                        color: $txtInvert;
+                    }
+                }
+                .page-link {
+                    color: $linkColor;
+                }
+            }
+        }
+    }
+}
+
+
+
+// das funktioniert alles noch nicht.
+@include smDown {
+    img {
+        max-width: 150px;
+        margin: auto;
+    }
+}
+
+hr {
+    border-top: 4px solid $mainColor;
+}

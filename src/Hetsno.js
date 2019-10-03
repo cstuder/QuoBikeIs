@@ -18,10 +18,18 @@ function Hetsno(props) {
 
   return (
     <div className="hetsno">
-      <BikeStatusList ids={ids} />
-      Wohetsno.bike - <Link to="/">Zurück zum Start</Link> -{" "}
-      <Link to="/wogits">Zur Stationsauswahl</Link> -{" "}
-      <Link to="/hieume">Nächstgelegene Stationen</Link>
+      <div className="hetsnoDings">
+        <img src="/img/wohetsno.svg" alt="Logo" />
+        <h1>wohetsno.bike</h1>
+        <Link to="/">Zurück zum Start</Link>{" "}
+        <Link to="/wogits">Zur Stationsauswahl</Link>{" "}
+        <Link to="/hieume">Nächstgelegene Stationen</Link>
+      </div>
+      <div className="hetsnoContainer">
+        <div>
+          <BikeStatusList ids={ids} />
+        </div>
+      </div>
     </div>
   );
 }

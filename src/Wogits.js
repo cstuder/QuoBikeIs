@@ -107,35 +107,43 @@ class Wogits extends React.Component {
 
     return (
       <div className="wogits">
-        <Form.Control
-          type="text"
-          value={this.state.selectedStations.join(",")}
-          disabled
-        />
-        <PaginationProvider pagination={paginationFactory(paginationOptions)}>
-          {({ paginationProps, paginationTableProps }) => (
-            <div>
-              <PaginationTotalStandalone {...paginationProps} />{" "}
-              <SizePerPageDropdownStandalone {...paginationProps} />
-              <BootstrapTable
-                keyField="id"
-                data={data}
-                columns={columns}
-                bootstrap4
-                striped
-                bordered
-                hover
-                defaultSorted={[
-                  { dataField: "city", order: "asc" },
-                  { dataField: "name", order: "asc" }
-                ]}
-                filter={filterFactory()}
-                {...paginationTableProps}
-              />
-              <PaginationListStandalone {...paginationProps} />
-            </div>
-          )}
-        </PaginationProvider>
+        <div className="outputContainer">
+          <img src="img/wohetsno.svg" alt="Logo" />
+          <h2 className="mainTitle">Deine Stationsnummern:</h2>
+          <Form.Control
+            type="text"
+            value={this.state.selectedStations.join(",")}
+            disabled
+          />
+          <button className="btn btn-primary">Zu deinen Stationen (not working yet)</button>
+        </div>
+        <div className="inputContainer">
+          <h1 className="introTitle">Wähle deine Stationen</h1>
+          <PaginationProvider pagination={paginationFactory(paginationOptions)}>
+            {({ paginationProps, paginationTableProps }) => (
+              <div>
+                <PaginationTotalStandalone {...paginationProps} />{" "}
+                <SizePerPageDropdownStandalone {...paginationProps} />
+                <BootstrapTable
+                  keyField="id"
+                  data={data}
+                  columns={columns}
+                  bootstrap4
+                  striped
+                  bordered
+                  hover
+                  defaultSorted={[
+                    { dataField: "city", order: "asc" },
+                    { dataField: "name", order: "asc" }
+                  ]}
+                  filter={filterFactory()}
+                  {...paginationTableProps}
+                />
+                <PaginationListStandalone {...paginationProps} />
+              </div>
+            )}
+          </PaginationProvider>
+        </div>
       </div>
     );
   }

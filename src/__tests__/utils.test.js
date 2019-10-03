@@ -52,11 +52,16 @@ test("Bearing slightly off", () => {
   b_n.latitude += 1;
 
   expect(bearing(bern, b_n)).toBe(0);
-  expect(bearing(b_n, bern)).toBe(-180);
+  expect(bearing(b_n, bern)).toBe(180);
 
   const b_e = { ...bern };
   b_e.longitude += 1;
 
-  expect(bearing(bern, b_e)).toBeCloseTo(270.3, 1);
-  expect(bearing(b_e, bern)).toBeCloseTo(90, 1);
+  expect(bearing(bern, b_e)).toBeCloseTo(90, 0);
+  expect(bearing(b_e, bern)).toBeCloseTo(270, 0);
+});
+
+test("Going from Berne to Rio", () => {
+  expect(bearing(bern, rio)).toBeCloseTo(225.8, 1);
+  expect(bearing(rio, bern)).toBeCloseTo(32.1, 1);
 });
