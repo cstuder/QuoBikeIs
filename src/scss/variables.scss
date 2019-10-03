@@ -3,7 +3,7 @@ $veloWeg: #ebc900;
 $bgColor: #fafeff;
 $txtColor: #0b1d44;
 $txtInvert: white;
-$linkColor: #33b91b;
+$linkColor: darken($veloWeg, 30%);
 $linkBgColor: lighten($linkColor, 10%);
 
 $mainFont: "Inter", sans-serif;

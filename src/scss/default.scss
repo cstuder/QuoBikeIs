@@ -2,13 +2,13 @@
     @include mdDown {
         border-bottom: $veloLine;
         padding-bottom: $defaultPadding;
-        h1 {
-            @include fontSize(1.8, 1.5);
+        .mainTitle {
+            @include fontSize(1.6, 1.5);
         }
     }
     @include mdUp {
         border-left: $veloLine;
-        h1 {
+        .mainTitle {
             @include fontSize(2, 1.5);
         }
     }
@@ -21,21 +21,17 @@
 
 //stations tabelle
 .wogits {
-    .outputContainer {
+    .lander {
         input {
             @extend %fontXXL;
             background: transparent;
             border: none;
         }
-        img {
-            max-width: 200px;
-            margin-bottom: 40px;
-        }
     }
     .inputContainer {
         table {
-            tr {
-                border: solid 1px red !important;
+            td, th {
+                border-color: $veloWeg;
             }
         }
         .pagination {
@@ -44,7 +40,7 @@
                     .page-link {
                         background: $linkBgColor;
                         border-color: $linkBgColor;
-                        color: $txtInvert;
+                        color: $txtColor;
                     }
                 }
                 .page-link {

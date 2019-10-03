@@ -23,7 +23,7 @@ button {
   font-family: $mainFont;
   border-color: $linkBgColor;
   background: $linkBgColor;
-  color: $txtInvert;
+  color: $txtColor;
   &:hover {
     //color: $txtColor;
     background: lighten($linkBgColor, 10%);

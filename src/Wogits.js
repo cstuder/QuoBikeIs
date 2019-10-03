@@ -107,9 +107,11 @@ class Wogits extends React.Component {
 
     return (
       <div className="wogits">
-        <div className="outputContainer">
+        <div className="lander">
+        <div className="landerContent">
           <img src="img/wohetsno.svg" alt="Logo" />
-          <h2 className="mainTitle">Deine Stationsnummern:</h2>
+          <h2 className="mainTitle">Deine Stationsnr:</h2>
+        </div>
           <Form.Control
             type="text"
             value={this.state.selectedStations.join(",")}
@@ -129,9 +131,6 @@ class Wogits extends React.Component {
                   data={data}
                   columns={columns}
                   bootstrap4
-                  striped
-                  bordered
-                  hover
                   defaultSorted={[
                     { dataField: "city", order: "asc" },
                     { dataField: "name", order: "asc" }

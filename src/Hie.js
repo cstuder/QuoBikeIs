@@ -70,12 +70,11 @@ class Hie extends React.Component {
         <div className="lander">
           <div className="landerContent">
             <img src="/img/wohetsno.svg" alt="Logo" />
-            <h1>wohetsno.bike</h1>
+            <h1 className="mainTitle">wohetsno.bike</h1>
           </div>
           <div className="landerLinks">
-              <Link to="/">Start</Link>{" "}
-              <Link to="/wogits">Stationen</Link>{" "}
-            </div>
+            <Link to="/">Start</Link> <Link to="/wogits">Stationen</Link>{" "}
+          </div>
         </div>
         <div className="hetsnoContainer">
           <div>

@@ -6,7 +6,11 @@ import { haversine, bearing } from "./utils";
 
 export function BikeStatusList(props) {
   return props.ids.map(id =>
-    isNaN(id) ? <hr /> : <BikeStatus id={id} key={id} location={props.location} />
+    isNaN(id) ? (
+      <hr />
+    ) : (
+      <BikeStatus id={id} key={id} location={props.location} />
+    )
   );
 }
 
@@ -64,8 +68,8 @@ class BikeStatus extends React.Component {
     const name = (
       <span>
         <a href={mapurl}>
-        <span className="locName">{data.name}</span>
-            <span className="locCity">{data.city}</span>
+          <span className="locName">{data.name}</span>
+          <span className="locCity">{data.city}</span>
         </a>
       </span>
     );
@@ -84,7 +88,13 @@ class BikeStatus extends React.Component {
 
     const status = (
       <span class="bikeIndicator">
-        <span role="img" aria-label="Normale Bikes">💪</span>&nbsp;{bikes}&nbsp;|&nbsp;{ebikes}&nbsp;<span role="img" aria-label="E-Bikes">⚡️</span>
+        <span role="img" aria-label="Normale Bikes">
+          💪
+        </span>
+        &nbsp;{bikes}&nbsp;|&nbsp;{ebikes}&nbsp;
+        <span role="img" aria-label="E-Bikes">
+          ⚡️
+        </span>
       </span>
     );
 
@@ -92,11 +102,11 @@ class BikeStatus extends React.Component {
 
     if (this.props.location) {
       let d = Math.ceil(haversine(data, this.props.location));
-      let u = 'm';
+      let u = "m";
 
       if (d >= 1000) {
         d = Math.ceil(d / 100) / 10;
-        u = 'km';
+        u = "km";
       }
 
       let b = Math.ceil(bearing(data, this.props.location)) - 90; // Strangely the bearing is 90° off.
@@ -110,7 +120,9 @@ class BikeStatus extends React.Component {
 
       distance = (
         <>
-          <span>{d} {u}</span>{" "}
+          <span>
+            {d} {u}
+          </span>{" "}
           <span style={rotation} title={bNormalized + "°"}>
             ➤
           </span>
