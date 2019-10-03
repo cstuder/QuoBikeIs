@@ -73,8 +73,8 @@ class Hie extends React.Component {
             <h1>wohetsno.bike</h1>
           </div>
           <div className="landerLinks">
-              <Link to="/">Zurück zum Start</Link>{" "}
-              <Link to="/wogits">Zur Stationsauswahl</Link>{" "}
+              <Link to="/">Start</Link>{" "}
+              <Link to="/wogits">Stationen</Link>{" "}
             </div>
         </div>
         <div className="hetsnoContainer">
