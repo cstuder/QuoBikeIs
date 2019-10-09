@@ -109,8 +109,7 @@ class BikeStatus extends React.Component {
         u = "km";
       }
 
-      let b = Math.ceil(bearing(data, this.props.location)) - 90; // Strangely the bearing is 90° off.
-      let bNormalized = (b + 360) % 360;
+      let b = Math.ceil(bearing(data, this.props.location));
       let bFixed = b - 90; // The arrow is bearing towards 90° too.
 
       let rotation = {
@@ -123,7 +122,7 @@ class BikeStatus extends React.Component {
           <span>
             {d} {u}
           </span>{" "}
-          <span style={rotation} title={bNormalized + "°"}>
+          <span style={rotation} title={b + "°"}>
             ➤
           </span>
         </>
