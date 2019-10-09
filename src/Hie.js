@@ -67,14 +67,11 @@ class Hie extends React.Component {
       </div>
     ) : this.props.coords ? (
       <div className="hetsno">
-        <div className="lander">
-          <div className="landerContent">
-            <img src="/img/wohetsno.svg" alt="Logo" />
-            <h1 className="mainTitle">wohetsno.bike</h1>
-          </div>
-          <div className="landerLinks">
-            <Link to="/">Start</Link> <Link to="/wogits">Stationen</Link>{" "}
-          </div>
+        <div className="hetsnoDings">
+          <img src="/img/wohetsno.svg" alt="Logo" />
+          <h1 className="mainTitle">wohetsno.bike</h1>
+          <Link to="/">Zurück zum Start</Link>{" "}
+          <Link to="/wogits">Zur Stationsauswahl</Link>{" "}
         </div>
         <div className="hetsnoContainer">
           <div>
