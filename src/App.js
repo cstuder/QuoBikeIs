@@ -45,9 +45,15 @@ function Index() {
         <div className="introContent">
           <h2 className="introTitle">Wohetsno.bike</h2>
           <h3 className="subTitle">
-            Schneller Überblick über PubliBike-Standorte. <br /> Zeigt dir alle
-            aktuellen verfügbaren Velos und E-Bikes auf deinen
-            Lieblingsstationen an.
+            Zeigt dir alle aktuellen verfügbaren Velos{" "}
+            <span role="img" aria-label="Normale Bikes">
+              💪
+            </span>{" "}
+            und E-Bikes{" "}
+            <span role="img" aria-label="E-Bikes">
+              ⚡️
+            </span>{" "}
+            an deinen Lieblingsstationen an.
           </h3>
           <hr />
           <h3 className="subTitle">Nahegelegene Stationen finden</h3>

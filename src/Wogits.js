@@ -29,6 +29,7 @@ class Wogits extends React.Component {
     };
 
     this.addStationToSelected = this.addStationToSelected.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
   componentDidMount() {
@@ -59,6 +60,8 @@ class Wogits extends React.Component {
       return (
         <p>
           Stationsliste nicht gefunden oder Netzwerkproblem. ({error.message})
+          <br />
+          Probier's einfach nochmal.
         </p>
       );
     }
@@ -69,26 +72,34 @@ class Wogits extends React.Component {
 
     // Data available
     const cities = [...new Set(data.map(i => i.city))].sort();
+    const networks = [...new Set(data.map(i => i.network))].sort();
 
     const columns = [
       {
         dataField: "network",
         text: "Netz",
-        sort: "true"
+        sort: "true",
+        filter: selectFilter({
+          options: networks.map(c => ({ value: c, label: c })),
+          placeholder: "Nach Netz filtern..."
+        })
       },
       {
         dataField: "city",
-        text: "Stadt",
+        text: "Ortschaft",
         sort: true,
         filter: selectFilter({
-          options: cities.map(c => ({ value: c, label: c }))
+          options: cities.map(c => ({ value: c, label: c })),
+          placeholder: "Nach Ortschaft filtern..."
         })
       },
       {
         dataField: "name",
         text: "Adresse",
         sort: true,
-        filter: textFilter()
+        filter: textFilter({
+          placeholder: "Nach Adresse suchen..."
+        })
       },
       {
         dataField: "actions",
@@ -108,16 +119,18 @@ class Wogits extends React.Component {
     return (
       <div className="wogits">
         <div className="lander">
-        <div className="landerContent">
-          <img src="img/wohetsno.svg" alt="Logo" />
-          <h2 className="mainTitle">Deine Stationsnr:</h2>
-        </div>
+          <div className="landerContent">
+            <img src="img/wohetsno.svg" alt="Logo" />
+            <h2 className="mainTitle">Deine Stationsnummern:</h2>
+          </div>
           <Form.Control
             type="text"
             value={this.state.selectedStations.join(",")}
             disabled
           />
-          <button className="btn btn-primary">Zu deinen Stationen (not working yet)</button>
+          <button className="btn btn-primary" onClick={this.handleButtonClick}>
+            Zu deinen Stationen
+          </button>
         </div>
         <div className="inputContainer">
           <h1 className="introTitle">Wähle deine Stationen</h1>
@@ -159,6 +172,12 @@ class Wogits extends React.Component {
     this.setState({
       selectedStations: this.state.selectedStations.concat(id)
     });
+  }
+
+  handleButtonClick() {
+    const url = "/hetsno/" + this.state.selectedStations.join(",");
+
+    this.props.history.push(url);
   }
 }
 
