@@ -101,7 +101,7 @@ class BikeStatus extends React.Component {
     let distance = null;
 
     if (this.props.location) {
-      let d = Math.ceil(haversine(data, this.props.location));
+      let d = Math.ceil(haversine(this.props.location, data));
       let u = "m";
 
       if (d >= 1000) {
@@ -109,7 +109,7 @@ class BikeStatus extends React.Component {
         u = "km";
       }
 
-      let b = Math.ceil(bearing(data, this.props.location));
+      let b = Math.ceil(bearing(this.props.location, data));
       let bFixed = b - 90; // The arrow is bearing towards 90° too.
 
       let rotation = {
