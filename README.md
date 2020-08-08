@@ -1,4 +1,4 @@
-# Wo het's no Bike?
+# Wo het's no Bike
 
 Schneller Überblick über deine PubliBike-Favoriten-Standorte.
 
