@@ -16,14 +16,14 @@ export LC_ALL=C.UTF-8
 
 ## Configuration
 PROJECT_NAME="wohetsno.bike"
-DEST_LIVE="existenz@existenz.ch:~/www/wohetsno.bike/"
-DEST_TEST="existenz@existenz.ch:~/www/wohetsno.bike-TEST/"
+DEST_LIVE="existenz@existenz.ch:~/www/existenz_wohetsno/"
+DEST_TEST="existenz@existenz.ch:~/www/existenz_wohetsno-TEST/"
 SRC_PATH="$GITHUB_WORKSPACE/build/";
 SRC_SERVICE_PATH="$GITHUB_WORKSPACE/service/";
 
 ENV_FILE="$GITHUB_WORKSPACE/.env.local"
-LOCALAPI_LIVE="https://wohetsno.bike/service/"
-LOCALAPI_TEST="https://test.wohetsno.bike/service/"
+LOCALAPI_LIVE="https://wohetsno.existenz.ch/service/"
+LOCALAPI_TEST="https://wohetsno-test.existenz.ch/service/"
 
 NOTIFICATION_TITLE=""
 NOTIFICATION_BODY="Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"

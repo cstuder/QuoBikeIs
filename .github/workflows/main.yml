@@ -9,14 +9,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12.x' 
-    - run: bash $GITHUB_WORKSPACE/deploy/action.sh
-      name: Run deployment script action.sh
-      env:
-        APPRISE_URL: ${{ secrets.APPRISE_URL }}
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - run: bash $GITHUB_WORKSPACE/deploy/action.sh
+        name: Run deployment script action.sh
+        env:
+          APPRISE_URL: ${{ secrets.APPRISE_URL }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

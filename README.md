@@ -2,21 +2,23 @@
 
 Schneller Überblick über deine PubliBike-Favoriten-Standorte.
 
-`LIVE`: <https://wohetsno.bike>
+`LIVE`: <https://wohetsno.existenz.ch>
 
-`TEST`: <https://test.wohetsno.bike>
+`TEST`: <https://wohetsno-test.existenz.ch>
 
 Unoffizielle Webseite für das Angebot von [PubliBike](https://www.publibike.ch).
 
 Eine Webseite von Christian Studer ([cstuder@existenz.ch](mailto:cstuder@existenz.ch), [Bureau für digitale Existenz](http://bureau.existenz.ch/)).
 
+(Vormals gehostet unter der Domain `wohetsno.bike`. Die war lustig aber hatte keine Lust mehr zu zahlen.)
+
 ## Struktur
 
 Einfach React-App, kreiert mit [Create React App](https://github.com/facebook/create-react-app), Routing mit [React Routing V5](https://reacttraining.com/react-router/).
 
-Um CORS-Sperre zu umgehen wird ein einfacher PHP-Service als Proxy verwendet.
+Um CORS-Sperre zu umgehen wird ein kleiner PHP-Service als Proxy verwendet.
 
-Der Service `stations.php` speichert dabei seine Daten in `/service/cache` damit der Service `stationslist.php` daraus die Stationsnamen auslesen kann. (Der Cache wird von `stations.php` selber nicht benutzt.)
+Der Service `stations.php` speichert dabei seine Daten in `/service/cache`. Der Service `stationslist.php` liest daraus die Stationsnamen aus. (Der Cache wird von `stations.php` selber nicht benutzt.)
 
 ## Development
 
